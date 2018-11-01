@@ -647,14 +647,21 @@ d3.select("circle").remove();
 PRACTICE 2
 ==========
 
-Download and open a fresh copy of [EDAV2.html](EDAV2.html)
+Download and open a fresh copy of [EDAV2.html](EDAV2.html) in a **text editor**.
 
-1.  Add a class to one of the circles.
+1. Add a class to one of the circles in the SVG section of the file.
 
-2.  Use an internal style sheet to style that circle with a green fill, orange border ("stroke"), and stroke width ("stroke-width") of 5.
+2. Use an internal style sheet in the html file to style that circle with a green fill, orange border ("stroke"), and stroke width ("stroke-width") of 5.
 
-3.  Open the JavaScript Console and use D3 to change the class of all the circles to your newly created class.
+3. Save the file and open it in Chrome. 
 
-4.  Use D3 to add an svg text element so that the top circle has a "1" in white in its center.
+4. Open the JavaScript Console and use D3 to change the class of all the circles to your newly created class.
 
-5.  Use D3 to transition the text to the second circle, changing the text to "2". (Note that the text changes immediately at the start of the transition.)
+5. Use D3 to add an SVG text element so that the top circle has a "1" in white in its center.
+
+6. Use D3 to transition the text to the second circle, changing the text to "2". (Note that the text changes immediately at the start of the transition.)
+
+
+
+
+
