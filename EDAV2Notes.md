@@ -284,11 +284,32 @@ Download and open [EDAV2.html](EDAV2.html)
 
 1.  Move all the circles to the right.
 
+```js
+d3.selectAll("circle").transition().duration(3000).attr("cx", "450")
+```
+
 2.  Move them back to the left *and* change their color.
+
+```js
+d3.selectAll("circle").transition().duration(3000).attr("cx", "50").attr("fill", "red")
+```
 
 3.  Add an id to one circle, and then move only that circle to the right.
 
+```html
+<circle id="mid_circle" cx="50" cy="200" r="20" fill="rgb(255, 0, 0)"></circle>
+```
+
+```js
+d3.select("#mid_circle").transition().duration(3000).style("cx", "450")
+```
+
 4.  Move all the circles to the middle of the screen, *then* move them all to the same location.
+
+```js
+d3.selectAll("circle").transition().duration(3000).style("cx", "250")
+.transition().duration(3000).style("cy", "200")
+```
 
 Modifying elements
 ==================
