@@ -101,11 +101,24 @@ EDAV1.html: Overview
 3.  Test it out.
 
 4.  Add the same event listener to the ellipse. Test it out.
+    
+    ``` javascript
+    d3.select("ellipse").on("mouseover", goyellow);
+    ```
 
 5.  Create a function `goblue()` that changes the fill color to blue.
+    
+    ``` javascript
+    function goblue() {d3.select(this).attr("fill", "blue")};
+    ```
 
 6.  Add event listeners to the circle and ellipse that will trigger a call to `goblue()` on a *mouseout*. Test out your code.
-
+    
+    ``` javascript
+    d3.select("circle").on("mouseover", goblue);
+    d3.select("ellipse").on("mouseover", goblue);
+    ```
+    
 7.  Try out a click event. (Note the use of an anonymous function.)
 
     ``` javascript
