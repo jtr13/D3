@@ -682,7 +682,51 @@ Download and open a fresh copy of [EDAV2.html](EDAV2.html) in a **text editor**.
 
 6. Use D3 to transition the text to the second circle, changing the text to "2". (Note that the text changes immediately at the start of the transition.)
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>EDAV2</title>
 
+		<script src="https://d3js.org/d3.v4.min.js"></script>  <!-- link to D3 library -->
+
+		<style type="text/css">
+		  .special{
+		    fill: green;
+		    stroke: orange;
+		    stroke-width: 5
+		  }
+		</style>
+
+
+	</head>
+
+	<body>
+		<svg width="500" height="400">
+			<rect x="0" y="0" width="500" height="400" fill="aliceblue"></rect>
+			<circle cx="50" cy="100" r="20" fill="blue"></circle>
+			<circle cx="50" cy="150" r="20" fill="blue"></circle>
+			<circle class="special" cx="50" cy="200" r="20" fill="blue"></circle>
+			<circle cx="50" cy="250" r="20" fill="blue"></circle>
+			<circle cx="50" cy="300" r="20" fill="blue"></circle>
+			<circle class="special" cx="50" cy="350" r="20" fill="blue"></circle>
+		</svg>
+
+		<script>
+		    // JavaScript / D3 will go here
+		</script>
+
+	</body>
+
+</html>
+
+```
+
+```js
+d3.select("svg").append("text").attr("x", "50").attr("y", "100").attr("fill", "white").text("1");
+d3.select("svg").select("text").transition().duration(2000).attr("y", "150").text("2");
+```
 
 
 
