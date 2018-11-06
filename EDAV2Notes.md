@@ -308,7 +308,7 @@ d3.select("#mid_circle").transition().duration(3000).style("cx", "450")
 
 ```js
 d3.selectAll("circle").transition().duration(3000).style("cx", "250")
-.transition().duration(3000).style("cy", "200")
+.transition().duration(3000).style("cy", "225")
 ```
 
 Modifying elements
