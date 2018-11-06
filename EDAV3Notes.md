@@ -181,6 +181,42 @@ Create the same visualization we did last class, but this time, build all the el
 
 1. Move all the circles to the middle of the screen, then move them all to the same location.
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>EDAV2</title>
+
+		<script src="https://d3js.org/d3.v4.min.js"></script>  <!-- link to D3 library -->
+ 
+	</head>
+
+	<body>
+		<svg width="500" height="400">
+			<rect x="0" y="0" width="500" height="400" fill="aliceblue"></rect>
+			<circle cx="50" cy="100" r="20" fill="blue"></circle>
+			<circle cx="50" cy="150" r="20" fill="blue"></circle>
+			<circle id="mid_circle" cx="50" cy="200" r="20" fill="blue"></circle>
+			<circle cx="50" cy="250" r="20" fill="blue"></circle>
+			<circle cx="50" cy="300" r="20" fill="blue"></circle>
+			<circle  cx="50" cy="350" r="20" fill="blue"></circle>
+		</svg>
+
+		<script>
+		    d3.selectAll("circle").transition().duration(3000).attr("cx", "450");
+            d3.selectAll("circle").transition().delay(3000).duration(3000).attr("cx", "50").attr("fill", "red");
+            d3.select("#mid_circle").transition().delay(6000).duration(3000).style("cx", "450")
+            d3.selectAll("circle").transition().delay(9000).duration(3000).style("cx", "250")
+                .transition().duration(3000).style("cy", "200")
+		</script>
+
+	</body>
+
+</html>
+```
+
+
 Binding data... (*finally*)
 =======
 ``` js
