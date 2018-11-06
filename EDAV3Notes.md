@@ -206,9 +206,9 @@ Create the same visualization we did last class, but this time, build all the el
 		<script>
 		    d3.selectAll("circle").transition().duration(3000).attr("cx", "450");
             d3.selectAll("circle").transition().delay(3000).duration(3000).attr("cx", "50").attr("fill", "red");
-            d3.select("#mid_circle").transition().delay(6000).duration(3000).style("cx", "450")
-            d3.selectAll("circle").transition().delay(9000).duration(3000).style("cx", "250")
-                .transition().duration(3000).style("cy", "200")
+            d3.select("#mid_circle").transition().delay(6000).duration(3000).attr("cx", "450")
+            d3.selectAll("circle").transition().delay(9000).duration(3000).attr("cx", "250")
+                .transition().duration(3000).attr("cy", "200")
 		</script>
 
 	</body>
