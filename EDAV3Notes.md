@@ -208,7 +208,7 @@ Create the same visualization we did last class, but this time, build all the el
             d3.selectAll("circle").transition().delay(3000).duration(3000).attr("cx", "50").attr("fill", "red");
             d3.select("#mid_circle").transition().delay(6000).duration(3000).attr("cx", "450")
             d3.selectAll("circle").transition().delay(9000).duration(3000).attr("cx", "250")
-                .transition().duration(3000).attr("cy", "200")
+                .transition().duration(3000).attr("cy", "225")
 		</script>
 
 	</body>
