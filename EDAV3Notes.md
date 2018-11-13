@@ -212,7 +212,9 @@ Binding data (Console)
 ``` js
 var dataset = [90, 230, 140, 75, 180, 25];
 
-var circ = d3.selectAll("circle");
+var svg = d3.select("svg");
+
+var circ = svg.selectAll("circle");
 
 circ
 
@@ -227,9 +229,16 @@ circ.attr("cx", function(d) {return d;});
 circ.attr("cx", function(d) {return d/2;});
 
 circ.attr("cx", function(d) {return d/4;}).attr("r", "10");
-
-circ.attr("r", d => d/10); // ES6 arrow functions
 ```
+
+Same as above, using arrow functions:
+
+```
+circ.attr("cx", d => d);
+
+circ.attr("cx", d => d/2);
+
+circ.attr("r", d => d/4).attr("r", "10");
 
 Practice 2
 =======
