@@ -12,7 +12,7 @@ Start with data bound to our six circles [EDAV4_1.html](https://raw.githubuserco
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>EDAV4Lect</title>
+		<title>EDAV4_1</title>
 		<script src="https://d3js.org/d3.v4.min.js"></script>
 	</head>
 
