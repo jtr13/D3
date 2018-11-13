@@ -5,7 +5,7 @@ Binding data
 =======
 ### Number of DOM elements = number of data values
 
-Start with data bound to our six circles [EDAV4_1.html](EDAV4_1.html):
+Start with data bound to our six circles [EDAV4_1.html](https://raw.githubusercontent.com/jtr13/D3/master/EDAV4_1.html):
 
 ``` html
 <!DOCTYPE html>
