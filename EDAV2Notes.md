@@ -647,7 +647,7 @@ d3.select("circle").remove();
 PRACTICE 2
 ==========
 
-Download and open a fresh copy of [EDAV2.html](EDAV2.html) in a **text editor**.
+Download and open a fresh copy of [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html) in a **text editor**.
 
 1. Add a class to one of the circles in the SVG section of the file.
 

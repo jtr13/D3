@@ -5,42 +5,21 @@ Binding data
 =======
 ### Number of DOM elements = number of data values
 
-Start with data bound to our six circles [EDAV4_1.html](https://raw.githubusercontent.com/jtr13/D3/master/EDAV4_1.html):
+Open a downloaded copy of [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this [online version](https://jtr13.github.io/D3/SixBlueCircles.html).
 
-``` html
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>EDAV4_1</title>
-		<script src="https://d3js.org/d3.v4.min.js"></script>
-	</head>
+Bind data to the circles in the JavaScript Console with the following code:
 
-	<body>
-		<svg width="500" height="500">
-			<circle cx="50" cy="100" r="20" fill="blue"></circle>
-			<circle cx="50" cy="150" r="20" fill="blue"></circle>
-			<circle cx="50" cy="200" r="20" fill="blue"></circle>
-			<circle cx="50" cy="250" r="20" fill="blue"></circle>
-			<circle cx="50" cy="300" r="20" fill="blue"></circle>
-			<circle cx="50" cy="350" r="20" fill="blue"></circle>
-		</svg>
-
-<!--Number of data values = number of DOM elements	-->
-
-    <script id="s1">
-			var svg = d3.select("svg");
-		  var dataset = [34, 123, 70, 187, 200, 324];
-		  var circ = svg.selectAll("circle");
-	  </script>
-  </body>
-</html>
+``` js
+var svg = d3.select("svg");
+var dataset = [34, 123, 70, 187, 200, 324];
+var circ = svg.selectAll("circle");
 ```
 
 Check data binding
 =======
 
 Console:
+
 ``` js
 circ.data();
 ```
@@ -48,22 +27,20 @@ circ.data();
 Use bound data to modify attributes
 =======
 ``` js
-<script id="s2">
+circ.data(dataset);
 
-  circ.data(dataset);
+circ.attr("fill", "red");
 
-  circ.attr("fill", "red");
+circ.attr("cx", d => d);
 
-  circ.attr("cx", d => d);
+circ.transition()
+    .duration(2000)
+    .attr("cx", d => 2*d);
 
-  circ.transition()
-      .duration(2000)
-      .attr("cx", d => 2*d);
-
-  circ.transition()
-      .delay(2000)
-      .duration(2000)
-      .attr("cx", d => d/2);
+circ.transition()
+    .delay(2000)
+    .duration(2000)
+    .attr("cx", d => d/2);
 
   var newdata = [145, 29, 53, 196, 200, 12];
 
