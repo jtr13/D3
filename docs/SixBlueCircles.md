@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -10,6 +9,7 @@
 	</head>
 
 	<body>
+		<h3>Six Blue Circles (online version)</h3>
 		<svg width="500" height="400">
 			<rect x="0" y="0" width="500" height="400" fill="lightgreen"></rect>
 			<circle cx="50" cy="100" r="20" fill="blue"></circle>
