@@ -3,11 +3,11 @@ EDAV4 Notes
 
 Binding data
 =======
-### Number of DOM elements = number of data values
+### 1. Number of DOM elements = number of data values
 
 Open a downloaded copy of [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this [online version](https://jtr13.github.io/D3/SixBlueCircles.html). (Right click to open in a new tab.)
 
-Bind data to the circles in the JavaScript Console with the following code:
+Define the following variables by executing this code in the Console:
 
 ``` js
 var svg = d3.select("svg");
@@ -17,22 +17,27 @@ var dataset = [34, 123, 70, 187, 200, 324];
 var circ = svg.selectAll("circle");
 ```
 
-Check data binding
-=======
-
-Console:
-
+Check data binding:
 ``` js
 circ.data();
 ```
 
-Use bound data to modify attributes
-=======
+You should get:
+`(6) [undefined, undefined, undefined, undefined, undefined, undefined]` since we have not bound any data yet.
+
+
+Now, we'll bind data to the circles:
 ``` js
 circ.data(dataset);
+```
 
-circ.attr("fill", "red");
+And check the data bind again:
+``` js
+circ.data();
+```
 
+We can use the bound data to modify attributes:
+``` js
 circ.attr("cx", d => d);
 
 circ.transition()
@@ -40,56 +45,77 @@ circ.transition()
     .attr("cx", d => 2*d);
 
 circ.transition()
-    .delay(2000)
     .duration(2000)
     .attr("cx", d => d/2);
-
-  var newdata = [145, 29, 53, 196, 200, 12];
-
-  circ.data(newdata);
-
-  circ.transition()
-      .delay(4000)
-      .duration(2000)
-      .attr("cx", d => 2*d);
-
-</script>
 ```
 
-The data bind in depth
-=======
+If we bind a new set of data to the DOM elements, the original set will be overwritten:
+
+``` js
+var newdata = [145, 29, 53, 196, 200, 12];
+
+circ.data(newdata);
+
+circ.transition()
+    .duration(2000)
+    .attr("cx", d => 2*d);
+
+```
+
+### Update, Enter, and Exit Selections
+ 
 [UpdateEnterExit.pdf](UpdateEnterExit.pdf)
 
 
-Scenario 2: More DOM elements than data values
-=======
+
+### More DOM elements than data values
+
+
+Let's bind four data values to the six circles. (Note that we are not defining a separate variable for the dataset, simply entering the data array into the *select().data()* chain:
 
 ``` js
-<script id="s3">
-
-  var circ = svg.selectAll("circle")
-      .data([123, 52, 232, 90]);
-
-  circ.attr("fill", "green");
-
-  circ.exit().attr("fill", "red");
-
-  circ.exit().transition()
-      .duration(1000)
-      .attr("cx", "600");
-
-  circ.exit().transition()
-      .delay(1000)
-      .duration(1000)
-      .attr("cx", "300");
-
-  circ.exit().transition().delay(2000).remove();
-
-</script>
+svg.selectAll("circle")
+    .data([123, 52, 232, 90]);
 ```
 
-Scenario 1: More data values than DOM Elements
-=======
+Click the black triangle to view the `_enter`, `_exit`, and `_groups` fields. 
+
+
+We can store the selection in a variable:
+
+``` js
+var circ = svg.selectAll("circle")
+    .data([123, 52, 232, 90]);
+```
+
+Let's look at the exit selection:
+
+``` js
+circ.exit();
+```
+
+Try this:
+``` js
+circ.attr("fill", "green");
+```
+
+What happened and why?
+
+Now try this:
+``` js
+circ.exit().attr("fill", "red");
+```
+
+What happened and why?
+
+What do you think this will do? Try it.
+
+``` js
+circ.exit().transition().delay(2000).remove();
+
+```
+
+### More data values than DOM Elements
 ``` js
 <script id="s4">
 
