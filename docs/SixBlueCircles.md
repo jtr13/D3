@@ -11,7 +11,7 @@
 
 	<body>
 		<svg width="500" height="400">
-			<rect x="0" y="0" width="500" height="400" fill="magenta"></rect>
+			<rect x="0" y="0" width="500" height="400" fill="lightgreen"></rect>
 			<circle cx="50" cy="100" r="20" fill="blue"></circle>
 			<circle cx="50" cy="150" r="20" fill="blue"></circle>
 			<circle cx="50" cy="200" r="20" fill="blue"></circle>
