@@ -3,7 +3,7 @@ EDAV4 Notes
 
 Binding data
 =======
-### 1. Number of DOM elements = number of data values
+### Number of DOM elements = number of data values
 
 Open a downloaded copy of [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this [online version](https://jtr13.github.io/D3/SixBlueCircles.html). (Right click to open in a new tab.)
 
@@ -69,7 +69,7 @@ circ.transition()
 
 
 
-### More DOM elements than data values
+### More DOM elements than data values (Removing elements)
 
 Let's bind four data values to the six circles. (Note that we are not defining a separate variable for the dataset, simply entering the data array into the *select().data()* chain:
 
@@ -112,91 +112,105 @@ What do you think this will do? Try it.
 
 ``` js
 circ.exit().transition().duration(2000).remove();
-
-```
-
-Look again at the `circ` selection:
-``` js
-circ;
 ```
 
 Create a new variable `circ2` and compare it to `circ`:
 ``` js
 var circ2 = d3.selectAll("circle");
 
-circ2;
+circ.data();
 
 circ2.data();
+
+circ.exit();
+
+circ2.exit();
 ```
 
 What's going on?
 
 
+### More data values than DOM Elements (Adding elements)
 
+Let's bind new data to the circles:
 
-### More data values than DOM Elements
 ``` js
-<script id="s4">
-
 var circ = svg.selectAll("circle")
       .data([123, 52, 232, 90, 34, 12, 189, 110]);
-
-  circ.enter()
-      .append("circle")
-        .attr("cx", "50")
-        .attr("cy", (d, i) => i * 50 + 100)
-        .attr("r", "20")
-        .attr("fill", "red");
-
-  // only acts on update selection
-  circ.transition()
-        .duration(3000)
-        .attr("cx", "400");
-
-
-</script>
 ```
 
-Scenario 1: Combining update and enter selections with `.merge()`
-=======
+And look at the enter selection:
 
 ``` js
-<script id="s5">
-// simplified code after 3/27 class:
+circ.enter();
+```
 
-    var allcirc = circ  // all existing circles -- see script s1
-        .data([123, 52, 232, 90, 34, 12, 189, 110])
-        .enter()  // 2 placeholders
+How many placeholders are in the enter selection?
+
+Let's add circles for each of these placeholders:
+
+``` js
+circ.enter()
+    .append("circle")
+      .attr("cx", "100")
+      .attr("cy", (d, i) => i * 50 + 25)
+      .attr("r", "20")
+      .attr("fill", "blue");
+```
+
+Try this:
+``` js
+circ.transition()
+  .duration(3000)
+  .attr("cx", "400");
+```
+
+What do you need to do to act on *all* of the circles?
+
+```
+svg.selectAll("circle")
+  .transition()
+  .duration(2000)
+  .attr("cy", (d, i) => (i * 50) + 25)
+  .attr("cx", "200");
+```
+
+### Combining update and enter selections with `.merge()`
+
+Refresh the screen to start with a clean copy of SixBlueCircles.html.
+
+``` js
+var svg = d3.select("svg");
+var circ = svg.selectAll("circle");
+var allcirc = circ.data([123, 52, 232, 90, 34, 12, 189, 110])
+      .enter()  // 2 placeholders
         .append("circle")  // placeholders -> circles
-          .attr("cx", "50")  // acts on enter selection only
-          .attr("cy", (d, i) => i * 50 + 100)
+          .attr("cx", "100")  // acts on enter selection only
+          .attr("cy", (d, i) => (i - 7) * 50)
           .attr("r", "20")
           .attr("fill", "red")
 	.merge(circ)  // combines enter and update selections
 	
-    allcirc.transition() // acts on all 8 circles
-          .duration(3000)
-          .attr("cx", "400")
-          .attr("fill", "purple");
-
-    allcirc.transition() // acts on all 8 circles
-        .delay(3000)
+allcirc.transition() // acts on all 8 circles
         .duration(3000)
-        .attr("cx", "50");
+        .attr("cx", "400")
+        .attr("fill", "purple");
 
-</script>
+allcirc.transition() // acts on all 8 circles
+      .duration(3000)
+      .attr("cx", "50");
 ```
 
-Scenario: no DOM elements exist
-=======
-### data / enter / append sequence
+### Adding elements with data / enter / append sequence
+
+Refresh the screen to start with a clean copy of SixBlueCircles.html.
 
 ``` js
-<script id="s6">
+var svg = d3.select("svg");
 
-  var specialdata = [100, 250, 300];
+var specialdata = [100, 250, 300];
 
-  var bars = svg.selectAll("rect")
+var bars = svg.selectAll("rect")
       .data(specialdata)
       .enter()
       .append("rect")
@@ -204,18 +218,34 @@ Scenario: no DOM elements exist
         .attr("y", d => d)
         .attr("width", "50")
         .attr("height", "30")
-        .attr("fill", "green");
-
-  d3.selectAll("circle").remove();
-
-
-</script>
+        .attr("fill", "red");
 ```
 
-Practice 1: Horizontal Bar Chart
-=======
+What's going on?
+
+Refresh the page, and try the following instead:
 
 
+``` js
+var svg = d3.select("svg");
+
+var specialdata = [100, 250, 300];
+
+var bars = svg.append("g")
+      .selectAll("rect")
+      .data(specialdata)
+      .enter()
+      .append("rect")
+        .attr("x", d => d)
+        .attr("y", d => d)
+        .attr("width", "50")
+        .attr("height", "30")
+        .attr("fill", "red");
+```
+
+
+
+### Practice 1: Horizontal Bar Chart
 
 Submit / view solutions here: [ExerciseSolutions.md](ExerciseSolutions.md)
 
