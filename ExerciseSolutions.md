@@ -210,7 +210,7 @@ Solution 4
 
         <script>
             d3.selectAll("circle").transition().duration(2000).attr("cx", "400");
-            d3.selectAll("circle").transition().delay(2000).duration(2000).attr("cx", "50").attr("fill","red");
+            d3.selectAll("circle").transition().delay(2000).duration(2000).attr("cx", "50").style("fill","red");
             d3.select("#my_c").transition().delay(4000).duration(2000).attr("cx","400");
             d3.selectAll("circle").transition().delay(6000).duration(2000).attr("cx","200").transition().duration(2000).attr("cy","200")
         </script>
@@ -230,20 +230,20 @@ Solution 1
   var svg = d3.select("body").append("svg")
       .attr("width", "500").attr("height", "400");
   svg.append("rect").attr("x", "0").attr("y", "0")
-        .attr("width", "500").attr("height", "400").attr("fill", "aliceblue");
+        .attr("width", "500").attr("height", "400").style("fill", "aliceblue");
 
   svg.append("circle").attr("cx", "50").attr("cy", "100")
-      .attr("r", "20").attr("fill", "blue");
+      .attr("r", "20").style("fill", "blue");
   svg.append("circle").attr("cx", "50").attr("cy", "150")
-      .attr("r", "20").attr("fill", "blue");
+      .attr("r", "20").style("fill", "blue");
   svg.append("circle").attr("cx", "50").attr("cy", "200")
-      .attr("r", "20").attr("fill", "blue");
+      .attr("r", "20").style("fill", "blue");
   svg.append("circle").attr("cx", "50").attr("cy", "250")
-      .attr("r", "20").attr("fill", "blue");
+      .attr("r", "20").style("fill", "blue");
   svg.append("circle").attr("cx", "50").attr("cy", "300")
-      .attr("r", "20").attr("fill", "blue");
+      .attr("r", "20").style("fill", "blue");
   svg.append("circle").attr("cx", "50").attr("cy", "350")
-      .attr("r", "20").attr("fill", "blue");
+      .attr("r", "20").style("fill", "blue");
 
 
   var dataset = [100, 150, 200, 250, 300, 350];
@@ -264,7 +264,7 @@ Solution 2 (with multiple transitions)
 ``` js
 <script>
         var svg=d3.select("body").append("svg").attr("width", "500").attr("height", "400");
-        svg.append("rect").attr("x", "0").attr("y", "0").attr("width", "500").attr("height", "400").attr("fill", "lightblue");
+        svg.append("rect").attr("x", "0").attr("y", "0").attr("width", "500").attr("height", "400").style("fill", "lightblue");
 
         svg.append("circle").attr("cy","100");
         svg.append("circle").attr("cy","150");
@@ -274,7 +274,7 @@ Solution 2 (with multiple transitions)
         svg.append("circle").attr("cy","350");
 
         var circ=d3.selectAll("circle");
-        circ.attr("cx","50").attr("r","20").attr("fill","blue");
+        circ.attr("cx","50").attr("r","20").style("fill","blue");
 
         var dataset=[90,230,140,75,180,25];
 
@@ -282,7 +282,7 @@ Solution 2 (with multiple transitions)
 
         circ.transition().duration(3000).attr("cx",d=>d).on("end",function () {
                 circ.transition().duration(3000).attr("cx",d=>d/2)
-                    .attr("fill","red").on("end",function(){
+                    .style("fill","red").on("end",function(){
                 d3.select("#c3").transition().duration(3000).attr("cx",d=>d).on("end",function () {
                     circ.transition().duration(3000).attr("cx",d=>d/4).attr("r","10").on("end",function () {
                         circ.transition().duration(3000).attr("r",d=>d/10);
@@ -297,24 +297,58 @@ Solution 3 (using `.data(dataset).enter().append("circle")` to create circles)
 
 ``` js
 <script>
-        var svg=d3.select("body").append("svg").attr("width", "500").attr("height", "400");
-        svg.append("rect").attr("x", "0").attr("y", "0").attr("width", "500").attr("height", "400").attr("fill", "lightblue");
+  var svg = d3.select("body")
+    .append("svg")
+    .attr("width", "500")
+    .attr("height", "400");
+    
+  svg.append("rect")
+    .attr("x", "0")
+    .attr("y", "0")
+    .attr("width", "500")
+    .attr("height", "400")
+    .style("fill", "lightblue");
 
-        var dataset=[100,150,200,250,300,350];
-        svg.selectAll("circle").data(dataset).enter().append("circle")
+  var dataset = [100,150,200,250,300,350];
+        
+  svg.selectAll("circle")
+    .data(dataset)
+    .enter()
+    .append("circle");
 
-        var circ=d3.selectAll("circle");
-        circ.attr("cx",d=>d).attr("cy",d=>d).attr("r","25").attr("fill","blue");
-        circ.transition().duration(3000).attr("cx",40).on("end",function(){
-                circ.transition().duration(3000).attr("cx",d=>d/2)
-                .attr("fill","red").on("end",function(){
-                circ.transition().duration(3000).attr("cy",250).attr("fill","green").on("end",function(){
-                circ.transition().duration(3000).attr("cx",d=>d/4).attr("r","10").on("end",function(){
-                circ.transition().duration(3000).attr("r",d=>d/10);
-                        });
-                        });
-                        });
-        });
+  var circ = d3.selectAll("circle");
+        
+  circ.attr("cx",d => d)
+    .attr("cy",d => d)
+    .attr("r","25")
+    .style("fill","blue");
+          
+  circ.transition()
+    .duration(3000)
+    .attr("cx",40)
+    .on("end", function () {
+        circ.transition()
+          .duration(3000)
+          .attr("cx",d => d/2)
+          .style("fill","red")
+          .on("end",function () {
+              circ.transition()
+              .duration(3000)
+              .attr("cy",250)
+              .style("fill","green")
+                .on("end", function () {
+                  circ.transition()
+                    .duration(3000)
+                    .attr("cx", d => d/4)
+                    .attr("r","10")
+                    .on("end", function () {
+                      circ.transition()
+                      .duration(3000)
+                      .attr("r", d => d/10);
+                      });
+                  });
+             });
+      });
 </script>
 ```
 
@@ -334,25 +368,25 @@ Solution 3 (using `.data(dataset).enter().append("circle")` to create circles)
 	    	<script src="https://d3js.org/d3.v4.min.js"></script>  <!-- link to D3 library -->
     	</head>
     	<body>
-    		<script>
+        <script>
 
-		        var svg = d3.select("body")
-                .append("svg")
-		              .attr("width", "500")
-		              .attr("height", "500");
+          var svg = d3.select("body")
+              .append("svg")
+                .attr("width", "500")
+                .attr("height", "500");
 
-		        var bardata = [300, 100, 150, 225, 75, 275];
+          var bardata = [300, 100, 150, 225, 75, 275];
 
-		        var bars = svg.selectAll("rect")
-		        	.data(bardata);
+          var bars = svg.selectAll("rect")
+              .data(bardata);
 
-		        bars.enter()
-		        	.append("rect")
-		        	  .attr("x", "30")
-				  .attr("y", (d, i) => i*50)
-			      	  .attr("width", d => d)
-			      	  .attr("height", "35")
-			      	  .attr("fill", "lightgreen");
+          bars.enter()
+              .append("rect")
+                .attr("x", "30")
+                .attr("y", (d, i) => i*50)
+                .attr("width", d => d)
+                .attr("height", "35")
+                .style("fill", "lightgreen");
 
 	    	</script>
 	    </body>
@@ -424,9 +458,9 @@ Start with the bar chart you created in Practice 1.
       .attr("y", (d, i) => i*50)
       .attr("width", d => d)
       .attr("height", "35")
-      .attr("fill", "lightgreen")
-      .attr("stroke", "purple")
-      .attr("stroke-width", "3");
+      .style("fill", "lightgreen")
+      .style("stroke", "purple")
+      .style("stroke-width", "3");
  ```
 
 4. Use .merge() to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.
