@@ -337,7 +337,7 @@ Solution 3 (using `.data(dataset).enter().append("circle")` to create circles)
     		<script>
 
 		        var svg = d3.select("body")
-		            .append("svg")
+                .append("svg")
 		              .attr("width", "500")
 		              .attr("height", "500");
 
@@ -384,10 +384,10 @@ Start with the bar chart you created in Practice 1.
  Bind data and update bar lengths:
 
  ``` js
-  var newbardata = [250, 125, 80, 100];
+ var newbardata = [250, 125, 80, 100];
 
  var bars = svg.selectAll("rect")
- 	   .data(newbardata);  
+      .data(newbardata);  
 
  bars.attr("width", d => d);
 
@@ -397,7 +397,7 @@ Start with the bar chart you created in Practice 1.
 
  ``` js
  bars.exit()
-       .remove();
+      .remove();
  ```
 
 3. Bind a new dataset, reallynewbardata, to the bars, update old bar lengths, then add additional bars so each data value has a bar. Make the outline (stroke) of the new bars a different color.
@@ -410,7 +410,7 @@ Start with the bar chart you created in Practice 1.
   var reallynewbardata = [300, 100, 250, 50, 200, 150, 325, 275];
 
   var bars = svg.selectAll("rect")
-			.data(reallynewbardata);
+      .data(reallynewbardata);
 
   bars.attr("width", d => d);
   ```
@@ -419,21 +419,21 @@ Start with the bar chart you created in Practice 1.
 
  ``` js
  var newbars = bars.enter()
-	    .append("rect")
-	      .attr("x", "30")
-	      .attr("y", (d, i) => i*50)
-      	.attr("width", d => d)
-	      .attr("height", "35")
-	      .attr("fill", "lightgreen")
-				.attr("stroke", "purple")
-				.attr("stroke-width", "3");
+    .append("rect")
+      .attr("x", "30")
+      .attr("y", (d, i) => i*50)
+      .attr("width", d => d)
+      .attr("height", "35")
+      .attr("fill", "lightgreen")
+      .attr("stroke", "purple")
+      .attr("stroke-width", "3");
  ```
 
 4. Use .merge() to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.
 
  ``` js
  newbars.merge(bars)
-		   .attr("width", d => d/2);
+    .attr("width", d => d/2);
  ```
 
 5. Add text labels inside the bars at the right end with the length of the bar in pixels.
