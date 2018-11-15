@@ -186,7 +186,7 @@ var allcirc = circ.data([123, 52, 232, 90, 34, 12, 189, 110])
       .enter()  // 2 placeholders
         .append("circle")  // placeholders -> circles
           .attr("cx", "100")  // acts on enter selection only
-          .attr("cy", (d, i) => (i - 7) * 50)
+          .attr("cy", (d, i) => (i - 5) * 50)
           .attr("r", "20")
           .style("fill", "red")
 	.merge(circ)  // combines enter and update selections
