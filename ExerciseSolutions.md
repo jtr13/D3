@@ -34,7 +34,7 @@ d3.select("ellipse").on("mouseover", goyellow);
 5. Create a function `goblue()` that changes the fill color to blue.
 
 ``` js
-function goblue() {d3.select(this).attr("fill", "blue")};
+function goblue() {d3.select(this).style("fill", "blue")};
 ```
 
 6. Add event listeners to the circle and ellipse that will trigger a call to `goblue()` on a *mouseout*.
@@ -54,7 +54,7 @@ On the console, type the following commands :
 
 ``` js
 d3.selectAll("circle").transition().duration(2000).attr("cx", "400");
-d3.selectAll("circle").transition().duration(2000).attr("cx", "50").attr("fill","red");
+d3.selectAll("circle").transition().duration(2000).attr("cx", "50").style("fill","red");
 d3.select("#my_circle").transition().duration(2000).attr("cx","400")
 d3.selectAll("circle").transition().duration(2000).attr("cx","200").transition().duration(2000).attr("cy","200")
 
@@ -93,7 +93,7 @@ Step 3-5 : On console as below :
 
 ``` js
 d3.selectAll("circle").classed("my_circle", true)
-d3.select("svg").append("text").attr("x", 50).attr("y",100).text("1").attr("fill","white");
+d3.select("svg").append("text").attr("x", 50).attr("y",100).text("1").style("fill","white");
 d3.select("text").transition().duration(4000).text("2").attr("y",150);
 ```
 
