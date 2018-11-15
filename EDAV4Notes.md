@@ -269,6 +269,8 @@ d3.select("svg")
 
 
 ### Practice 2: Merge
+
+Start with the bar chart you created in Practice 1.
     
 *Note: it's best to work in the Console for the following so you don't have to sequence the changes.*
 
