@@ -5,13 +5,15 @@ Binding data
 =======
 ### Number of DOM elements = number of data values
 
-Open a downloaded copy of [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this <a href="D3/docs/SixBlueCircles.md" target="_blank">online version</a>.
+Open a downloaded copy of [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this [online version](https://jtr13.github.io/D3/SixBlueCircles.html). (Right click to open in a new tab.)
 
 Bind data to the circles in the JavaScript Console with the following code:
 
 ``` js
 var svg = d3.select("svg");
+
 var dataset = [34, 123, 70, 187, 200, 324];
+
 var circ = svg.selectAll("circle");
 ```
 
