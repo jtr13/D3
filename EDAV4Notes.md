@@ -5,7 +5,7 @@ Binding data
 =======
 ### Number of DOM elements = number of data values
 
-Open a downloaded copy of [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this [online version](https://jtr13.github.io/D3/SixBlueCircles.html).
+Open a downloaded copy of [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this [online version](https://jtr13.github.io/D3/SixBlueCircles.html){target="_blank"}.
 
 Bind data to the circles in the JavaScript Console with the following code:
 
