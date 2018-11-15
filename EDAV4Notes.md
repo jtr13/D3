@@ -96,14 +96,14 @@ circ.exit();
 
 Try this:
 ``` js
-circ.attr("fill", "red");
+circ.style("fill", "red");
 ```
 
 What happened and why?
 
 Now try this:
 ``` js
-circ.exit().attr("fill", "purple");
+circ.exit().style("fill", "purple");
 ```
 
 What happened and why?
@@ -155,7 +155,7 @@ circ.enter()
       .attr("cx", "100")
       .attr("cy", (d, i) => i * 50 + 25)
       .attr("r", "20")
-      .attr("fill", "blue");
+      .style("fill", "blue");
 ```
 
 Try this:
@@ -177,7 +177,7 @@ svg.selectAll("circle")
 
 ### Combining update and enter selections with `.merge()`
 
-Refresh the screen to start with a clean copy of SixBlueCircles.html.
+Refresh the screen to get a clean version of  [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this [online version](https://jtr13.github.io/D3/SixBlueCircles.html). (Right click to open in a new tab.)
 
 ``` js
 var svg = d3.select("svg");
@@ -188,13 +188,13 @@ var allcirc = circ.data([123, 52, 232, 90, 34, 12, 189, 110])
           .attr("cx", "100")  // acts on enter selection only
           .attr("cy", (d, i) => (i - 7) * 50)
           .attr("r", "20")
-          .attr("fill", "red")
+          .style("fill", "red")
 	.merge(circ)  // combines enter and update selections
 	
 allcirc.transition() // acts on all 8 circles
         .duration(3000)
         .attr("cx", "400")
-        .attr("fill", "purple");
+        .style("fill", "purple");
 
 allcirc.transition() // acts on all 8 circles
       .duration(3000)
@@ -203,7 +203,7 @@ allcirc.transition() // acts on all 8 circles
 
 ### Adding elements with data / enter / append sequence
 
-Refresh the screen to start with a clean copy of SixBlueCircles.html.
+Refresh the screen to get a clean version of  [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this [online version](https://jtr13.github.io/D3/SixBlueCircles.html). (Right click to open in a new tab.)
 
 ``` js
 var svg = d3.select("svg");
@@ -218,7 +218,7 @@ var bars = svg.selectAll("rect")
         .attr("y", d => d)
         .attr("width", "50")
         .attr("height", "30")
-        .attr("fill", "red");
+        .style("fill", "red");
 ```
 
 What's going on?
@@ -232,6 +232,7 @@ var svg = d3.select("svg");
 var specialdata = [100, 250, 300];
 
 var bars = svg.append("g")
+      .attr("id", "rects")
       .selectAll("rect")
       .data(specialdata)
       .enter()
@@ -240,20 +241,36 @@ var bars = svg.append("g")
         .attr("y", d => d)
         .attr("width", "50")
         .attr("height", "30")
-        .attr("fill", "red");
+        .style("fill", "red");
 ```
 
+Compare:
 
+``` js
+d3.select("svg")
+  .select("g#rects")
+  .selectAll("rect")
+  .style("fill", "purple");
+```
+
+and
+
+``` js
+d3.select("svg")
+  .selectAll("rect")
+  .style("fill", "purple");
+```
 
 ### Practice 1: Horizontal Bar Chart
-
-Submit / view solutions here: [ExerciseSolutions.md](ExerciseSolutions.md)
 
 1. Create a new html file (try to recreate the template without looking!). Add a script that adds an svg element and horizontal bars of the lengths (in pixels) specified in `bardata`. Create the bars with the data / enter / append sequence.
 
     `var bardata = [300, 100, 150, 225, 75, 275];`
+
+
+### Practice 2: Merge
     
-    *Note: it's best to work in the Console for the following so you don't have to sequence the changes.*
+*Note: it's best to work in the Console for the following so you don't have to sequence the changes.*
 
 1. Change the data to any six other values and update the lengths of the bars.
 
@@ -268,3 +285,5 @@ Submit / view solutions here: [ExerciseSolutions.md](ExerciseSolutions.md)
 1. Use `.merge()` to combine the update and enter selections into one selection and then transition the height of all of the bars to half their current height.
 
 1. Add text labels inside the bars at the right end with the length of the bar in pixels.</p></li>
+
+Submit / view solutions here: [ExerciseSolutions.md](ExerciseSolutions.md)
