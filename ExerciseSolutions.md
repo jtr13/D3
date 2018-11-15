@@ -322,7 +322,7 @@ Solution 3 (using `.data(dataset).enter().append("circle")` to create circles)
 
 **Practice 1**
 
-1. Create a new html file (try to recreate the template without looking!). Add a script that adds an `svg` element and horizontal bars of the lengths (in pixels) specified in `bardata`. Create the bars with the data / enter / append sequence.  (Available here: [EDAV4BarChart.html](https://raw.githubusercontent.com/jtr13/D3/master/EDAV4BarChart.html)
+1. Create a new html file (try to recreate the template without looking!). Add a script that adds an `svg` element and horizontal bars of the lengths (in pixels) specified in `bardata`. Create the bars with the data / enter / append sequence.  (Available here: [EDAV4BarChart.html](https://raw.githubusercontent.com/jtr13/D3/master/EDAV4BarChart.html)).
 
     var bardata = [300, 100, 150, 225, 75, 275];
 
@@ -349,7 +349,7 @@ Solution 3 (using `.data(dataset).enter().append("circle")` to create circles)
 		        bars.enter()
 		        	.append("rect")
 		        	  .attr("x", "30")
-				        .attr("y", (d, i) => i*50)
+				  .attr("y", (d, i) => i*50)
 			      	  .attr("width", d => d)
 			      	  .attr("height", "35")
 			      	  .attr("fill", "lightgreen");
