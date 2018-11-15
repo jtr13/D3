@@ -36,7 +36,8 @@ And check the data bind again:
 circ.data();
 ```
 
-We can use the bound data to modify attributes:
+We can use the bound data to modify attributes. Try these one at a time:
+
 ``` js
 circ.attr("cx", d => d);
 
@@ -70,7 +71,6 @@ circ.transition()
 
 ### More DOM elements than data values
 
-
 Let's bind four data values to the six circles. (Note that we are not defining a separate variable for the dataset, simply entering the data array into the *select().data()* chain:
 
 ``` js
@@ -96,14 +96,14 @@ circ.exit();
 
 Try this:
 ``` js
-circ.attr("fill", "green");
+circ.attr("fill", "red");
 ```
 
 What happened and why?
 
 Now try this:
 ``` js
-circ.exit().attr("fill", "red");
+circ.exit().attr("fill", "purple");
 ```
 
 What happened and why?
@@ -111,9 +111,28 @@ What happened and why?
 What do you think this will do? Try it.
 
 ``` js
-circ.exit().transition().delay(2000).remove();
+circ.exit().transition().duration(2000).remove();
 
 ```
+
+Look again at the `circ` selection:
+``` js
+circ;
+```
+
+Create a new variable `circ2` and compare it to `circ`:
+``` js
+var circ2 = d3.selectAll("circle");
+
+circ2;
+
+circ2.data();
+```
+
+What's going on?
+
+
+
 
 ### More data values than DOM Elements
 ``` js
