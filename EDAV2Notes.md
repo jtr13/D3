@@ -280,7 +280,7 @@ d3.selectAll("rect.trio").transition().duration(3000)
 PRACTICE
 ========
 
-Download and open [EDAV2.html](EDAV2.html)
+Download and open [SixBlueCircles.html](SixBlueCircles.html)
 
 1.  Move all the circles to the right.
 

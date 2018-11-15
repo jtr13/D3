@@ -242,6 +242,8 @@ circ.attr("r", d => d/4).attr("r", "10");
 
 Practice 2
 =======
-Download and open [EDAV2.html](EDAV2.html)
+Download and open [SixBlueCircles.html](SixBlueCircles.html)
+
+(or use [this online version](https://jtr13.github.io/D3/SixBlueCircles.html)).
 
 Either in the Console or in the .html file bind data -- an array of exactly six values -- to the circles and use the data property to modify the circles.
