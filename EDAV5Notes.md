@@ -3,20 +3,128 @@ EDAV5 Notes
 
 ### Functions
 
-Download and open [SixBlueCircles.html](SixBlueCircles.html)
+Download and open [HorizontalBarChart.html](HorizontalBarChart.html)
 
-(or use [this online version](https://jtr13.github.io/D3/SixBlueCircles.html)).
+(or use [this online version](https://jtr13.github.io/D3/HorizontalBarChart.html)).
 
 Create a function in the Console:
 ``` js
-function movecenterH(data) {
+function changedata(data) {
   d3.select("svg")
-    .selectAll("circle")
+    .selectAll("rect")
     .data(data)
-    .attr("cx", d => d);
+    .attr("width", d => d);
     }
 ```
 
+Test it out:
+``` js
+changedata([258, 373, 278, 9, 72, 96]);
+```
+
+What happens if there are too many data values?
+
+``` js
+changedata([196, 360, 283, 390, 46, 56, 152]);
+```
+
+
+Let's use the enter selection to add new bars in this case:
+
+``` js
+function changedata(data) {
+  var bars = d3.select("svg") 
+    .selectAll("rect")
+    .data(data);    // bars is the update selection
+    
+  bars.enter()
+    .append("rect")
+      .attr("x", "30")  // until merge, acts on
+      .attr("y", (d, i) => i * 50) // enter selection only
+      .attr("height", "35")  
+      .attr("fill", "lightgreen")
+    .merge(bars) // merge in the update selection
+      .attr("width", d => d); // acts on all bars
+  }
+```
+
+What happens if we have more bars than data values?
+
+``` js
+changedata([325, 116, 25]);
+```
+
+Let's add to the function to remove the extra bars in this case:
+
+``` js
+function changedata(data) {
+  var bars = d3.select("svg") 
+    .selectAll("rect")
+    .data(data);    // bars is the update selection
+    
+  bars.enter()
+    .append("rect")
+      .attr("x", "30")  // until merge, acts on
+      .attr("y", (d, i) => i * 50) // enter selection only
+      .attr("height", "35")  
+      .attr("fill", "lightgreen")
+    .merge(bars) // merge in the update selection
+      .attr("width", d => d); // acts on all bars
+      
+  bars.exit()
+    .remove();
+  }
+```
+
+Try:
+``` js
+changedata([271, 49, 389]);
+```
+
+A fancy exit:
+``` js
+function changedata(data) {
+  var bars = d3.select("svg") 
+    .selectAll("rect")
+    .data(data);    // bars is the update selection
+    
+  bars.enter()
+    .append("rect")
+      .attr("x", "30")  // until merge, acts on
+      .attr("y", (d, i) => i * 50) // enter selection only
+      .attr("height", "35")  
+      .attr("fill", "lightgreen")
+    .merge(bars) // merge in the update selection
+      .attr("width", d => d); // acts on all bars
+      
+  bars.exit()
+    .attr("fill", "red")
+    .transition()
+    .duration(2000)
+    .attr("width", "0")
+    .remove();
+  }
+```
+
+``` js
+changedata([234, 129, 432, 286, 49, 372]);
+
+changedata([401, 23, 173]);
+```
+
+VOILA! We have created the D3 General Update Pattern!
+
+More examples from Mike Bostock (creator of D3):
+
+[General Update Pattern, I](https://bl.ocks.org/mbostock/3808218)
+
+[General Update Pattern, II](https://bl.ocks.org/mbostock/3808221)
+
+[General Update Pattern, III](https://bl.ocks.org/mbostock/3808234)
+
+It is covered in *IDVW* in the "Other Kinds of Data Updates" section on pp. 178-186 in Chapter 9. (The earlier part of Chapter 9 deals with data updates in which the number of DOM elements remains the same.)
+
+**Note that the General Update Pattern changed with D3 Version 4 so avoid examples from Version 3.**
 
 
 ### General Update Pattern
