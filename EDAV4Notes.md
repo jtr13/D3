@@ -96,14 +96,14 @@ circ.exit();
 
 Try this:
 ``` js
-circ.style("fill", "red");
+circ.attr("fill", "red");
 ```
 
 What happened and why?
 
 Now try this:
 ``` js
-circ.exit().style("fill", "purple");
+circ.exit().attr("fill", "purple");
 ```
 
 What happened and why?
@@ -155,7 +155,7 @@ circ.enter()
       .attr("cx", "100")
       .attr("cy", (d, i) => i * 50 + 25)
       .attr("r", "20")
-      .style("fill", "blue");
+      .attr("fill", "blue");
 ```
 
 Try this:
@@ -188,13 +188,13 @@ var allcirc = circ.data([123, 52, 232, 90, 34, 12, 189, 110])
           .attr("cx", "100")  // acts on enter selection only
           .attr("cy", (d, i) => (i - 7) * 50)
           .attr("r", "20")
-          .style("fill", "red")
+          .attr("fill", "red")
 	.merge(circ)  // combines enter and update selections
 	
 allcirc.transition() // acts on all 8 circles
         .duration(3000)
         .attr("cx", "400")
-        .style("fill", "purple");
+        .attr("fill", "purple");
 
 allcirc.transition() // acts on all 8 circles
       .duration(3000)
@@ -218,7 +218,7 @@ var bars = svg.selectAll("rect")
         .attr("y", d => d)
         .attr("width", "50")
         .attr("height", "30")
-        .style("fill", "red");
+        .attr("fill", "red");
 ```
 
 What's going on?
@@ -241,7 +241,7 @@ var bars = svg.append("g")
         .attr("y", d => d)
         .attr("width", "50")
         .attr("height", "30")
-        .style("fill", "red");
+        .attr("fill", "red");
 ```
 
 Compare:
@@ -250,7 +250,7 @@ Compare:
 d3.select("svg")
   .select("g#rects")
   .selectAll("rect")
-  .style("fill", "purple");
+  .attr("fill", "purple");
 ```
 
 and
@@ -258,7 +258,7 @@ and
 ``` js
 d3.select("svg")
   .selectAll("rect")
-  .style("fill", "purple");
+  .attr("fill", "purple");
 ```
 
 ### Practice 1: Horizontal Bar Chart
