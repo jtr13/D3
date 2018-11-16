@@ -1,6 +1,24 @@
 EDAV5 Notes
 ================
 
+### Functions
+
+Download and open [SixBlueCircles.html](SixBlueCircles.html)
+
+(or use [this online version](https://jtr13.github.io/D3/SixBlueCircles.html)).
+
+Create a function in the Console:
+``` js
+function movecenterH(data) {
+  d3.select("svg")
+    .selectAll("circle")
+    .data(data)
+    .attr("cx", d => d);
+    }
+```
+
+
+
 ### General Update Pattern
 
 Also available here: [EDAV5_1.html](EDAV5_1.html)
@@ -20,32 +38,32 @@ Also available here: [EDAV5_1.html](EDAV5_1.html)
 
 // Create svg and initial bars
 
-  var svg = d3.select("body")
-    .append("svg")
-      .attr("width", "500")
-      .attr("height", "400");
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", "500")
+    .attr("height", "400");
 
-  var bardata = [300, 100, 150, 225, 75, 275];
+var bardata = [300, 100, 150, 225, 75, 275];
 
-  var bars = svg.selectAll("rect")
-      .data(bardata);
+var bars = svg.selectAll("rect")
+  .data(bardata);
 
-  bars.enter().append("rect")
-      .attr("x", "30")
-      .attr("y", (d, i) => i*50)
-      .attr("width", d => d)
-      .attr("height", "35")
-      .attr("fill", "lightgreen");
+bars.enter().append("rect")
+  .attr("x", "30")
+  .attr("y", (d, i) => i*50)
+  .attr("width", d => d)
+  .attr("height", "35")
+  .attr("fill", "lightgreen");
 
 // General Update Pattern
 
-  function update(data) {
+function update(data) {
 
-    var bars = svg.selectAll("rect")    // data join
-        .data(data);
+  var bars = svg.selectAll("rect")    // data join
+    .data(data);
 
-
-    bars.enter().append("rect")    // add new elements
+    bars.enter()
+      .append("rect")    // add new elements
         .attr("x", "30")
         .attr("y", (d, i) => i*50)
         .attr("width", d => d)
