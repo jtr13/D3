@@ -4,17 +4,24 @@ EDAV3 Notes
 Adding D3 to `html` file
 ========================
 
-Start with bare minimum `html` (w/ D3):
+Start with bare minimum `html` (w/ D3 link). Copy and paste the code below, or download [D3template.html](https://raw.githubusercontent.com/jtr13/D3/master/D3template.html).
 
 ``` html
-    <head>
-        <meta charset="utf-8">
-        <title>EDAV3</title>
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Change the title!</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>  <!-- link to D3 library -->
+  </head>
 
-    <body>
-    </body>
+  <body>
+    <script>
+    // JavaScript / D3 will go here
+    </script>
+  </body>
+
+</html>
 ```
 
 Add svg

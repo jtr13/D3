@@ -263,7 +263,7 @@ d3.select("svg")
 
 ### Practice 1: Horizontal Bar Chart
 
-1. Create a new html file (try to recreate the template without looking!). Add a script that adds an svg element and horizontal bars of the lengths (in pixels) specified in `bardata`. Create the bars with the data / enter / append sequence.
+1. Create a new html file (try to recreate the template without looking... or use [this one](https://raw.githubusercontent.com/jtr13/D3/master/D3template.html)). Add a script that adds an svg element and horizontal bars of the lengths (in pixels) specified in `bardata`. Create the bars with the data / enter / append sequence.
 
     `var bardata = [300, 100, 150, 225, 75, 275];`
 
