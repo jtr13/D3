@@ -12,7 +12,7 @@ If you find any errors, please submit a pull request to this file.
 
 You are encouraged to add solutions. Again, submit by making a pull request to this file. Note that code chunks begin with
 
-  ``` js
+    ``` js
 
 and end with
 
@@ -93,9 +93,9 @@ Code for `<style>` and `<svg>` below:
 ``` js
 <style type="text/css">
   .my_circle {
-  fill : green;
-  stroke : orange;
-  stroke-width: 10;
+    fill : green;
+    stroke : orange;
+    stroke-width: 10;
   }
 </style>
 ```
@@ -192,8 +192,8 @@ Solution 1
   var svg = d3.select("body").append("svg")
   .attr("width", "500").attr("height", "400");
   svg.append("rect").attr("x", "0").attr("y", "0")
-    .attr("width", "500").attr("height", "400").attr("fill", "aliceblue");
-
+    .attr("width", "500").attr("height", "400")
+    .attr("fill", "aliceblue");
   svg.append("circle").attr("cx", "50").attr("cy", "100")
     .attr("r", "20").attr("fill", "blue");
   svg.append("circle").attr("cx", "50").attr("cy", "150")
