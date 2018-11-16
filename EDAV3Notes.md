@@ -239,6 +239,7 @@ circ.attr("cx", d => d);
 circ.attr("cx", d => d/2);
 
 circ.attr("r", d => d/4).attr("r", "10");
+```
 
 Practice 2
 =======
