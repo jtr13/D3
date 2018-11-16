@@ -226,8 +226,8 @@ Solution 2 (with multiple transitions)
 ``` js
 <script>
   var svg=d3.select("body").append("svg").attr("width", "500").attr("height", "400");
-  svg.append("rect").attr("x", "0").attr("y", "0").attr("width", "500").attr("height", "400").attr("fill", "lightblue");
-
+  svg.append("rect").attr("x", "0").attr("y", "0").attr("width", "500").attr("height", "400")
+    .attr("fill", "lightblue");
   svg.append("circle").attr("cy","100");
   svg.append("circle").attr("cy","150");
   svg.append("circle").attr("id","c3").attr("cy","200");
