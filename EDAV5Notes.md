@@ -54,17 +54,21 @@ d3.select("svg")
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods
 
-`Math.round(3.234);`
+``` js
+Math.round(3.234);
 
-`var x = [3.123, 9.7263, 12.2341];`
+var x = [3.123, 9.7263, 12.2341];
 
-`Math.round(x);`
+Math.round(x);
+```
 
 (Oops it's not R.)
 
-*map()*
+**map()**
 
-`x.map(d => Math.round(d))`;
+``` js
+x.map(d => Math.round(d));
+```
 
 **d3 statistics**
 
@@ -72,13 +76,14 @@ https://github.com/d3/d3/blob/master/API.md#statistics
 
 work on *arrays*
 
-`d3.mean(x)`
+``` js
+d3.mean(x);
 
-`var dataset = [[100, 200, 10], [300, 400, 20]];`
+var dataset = [[100, 200, 10], [300, 400, 20]];
 
-`d3.sum(dataset.map(d => d[0]));`
-
+d3.sum(dataset.map(d => d[0]));
 ```
+
 
 ### Functions
 
