@@ -12,7 +12,7 @@ objects, arrays, arrays of objects, functions (and other things)
 Open https://jtr13.github.io/D3/HorizontalBarChart.html in a new tab.
 
 ``` js
-var dataset = [[100, 200, 10], [300, 400, 20]];
+var dataset = [[100, 200, 40], [300, 150, 20]];
 
 d3.select("svg")
   .selectAll("circle")
@@ -79,7 +79,7 @@ work on *arrays*
 ``` js
 d3.mean(x);
 
-var dataset = [[100, 200, 10], [300, 400, 20]];
+var dataset = [[100, 200, 40], [300, 150, 20]];
 
 d3.sum(dataset.map(d => d[0]));
 ```
