@@ -1,6 +1,37 @@
 EDAV5 Notes
 ================
 
+### Just Enough JavaScript
+
+Basics: *IDVW*, pp. 36-52
+
+objects, arrays, arrays of objects, functions (and other things)
+
+**Arrays of arrays**
+
+https://jtr13.github.io/D3/HorizontalBarChart.html
+
+``` js
+var dataset = [[100, 200, 10], [300, 400, 20], [150, 250, 30]];
+
+d3.select("svg")
+  .selectAll("circle")
+  .data(dataset)
+  .enter()
+  .append("circle")
+  .attr("cx", d => d[0])
+  .attr("cy", d => d[1])
+  .attr("r", d => d[2])
+  .attr("fill", "red");
+  
+
+
+
+
+
+
+
+
 ### Functions
 
 Download and open [HorizontalBarChart.html](HorizontalBarChart.html)
