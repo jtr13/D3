@@ -7,12 +7,12 @@ Basics: *IDVW*, pp. 36-52
 
 objects, arrays, arrays of objects, functions (and other things)
 
-**Arrays of arrays**
+**Array of arrays**
 
-https://jtr13.github.io/D3/HorizontalBarChart.html
+Open https://jtr13.github.io/D3/HorizontalBarChart.html in a new tab.
 
 ``` js
-var dataset = [[100, 200, 10], [300, 400, 20], [150, 250, 30]];
+var dataset = [[100, 200, 10], [300, 400, 20]];
 
 d3.select("svg")
   .selectAll("circle")
@@ -23,14 +23,62 @@ d3.select("svg")
   .attr("cy", d => d[1])
   .attr("r", d => d[2])
   .attr("fill", "red");
-  
+```
 
+**Array of objects**
 
+``` js
+var dataset = [ {
+  cx: 100,
+  cy: 200,
+  fill: `red`
+  },
+  {
+  cx: 300,
+  cy: 400,
+  fill: `blue`
+  }];
 
+d3.select("svg")
+  .selectAll("circle")
+  .data(dataset)
+  .enter()
+  .append("circle")
+  .attr("cx", d => d.cx)
+  .attr("cy", d => d.cy)
+  .attr("r", "50")
+  .attr("fill", d => d.fill);
+```
 
+**Math methods**
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods
 
+`Math.round(3.234);`
 
+`var x = [3.123, 9.7263, 12.2341];`
+
+`Math.round(x);`
+
+(Oops it's not R.)
+
+*map()*
+
+`x.map(d => Math.round(d))`;
+
+**d3 statistics**
+
+https://github.com/d3/d3/blob/master/API.md#statistics
+
+work on *arrays*
+
+`d3.mean(x)`
+
+`var dataset = [[100, 200, 10], [300, 400, 20]];`
+
+`d3.sum(dataset.map(d => d[0]));`
+
+```
 
 ### Functions
 
