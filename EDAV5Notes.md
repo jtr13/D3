@@ -27,6 +27,8 @@ d3.select("svg")
 
 **Array of objects**
 
+(Refresh page)
+
 ``` js
 var dataset = [ {
   cx: 100,
@@ -35,7 +37,7 @@ var dataset = [ {
   },
   {
   cx: 300,
-  cy: 400,
+  cy: 100,
   fill: `blue`
   }];
 
