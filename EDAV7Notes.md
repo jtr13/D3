@@ -27,3 +27,59 @@ Transitions
 **Of note:** 
 
 * Bars now smoothly transition off to the left and right
+
+### Practice joining data by key
+
+Download and open [DataBindwithKeys.html](DataBindwithKeys.html)
+
+(or use [this online version](https://jtr13.github.io/D3/DataBindwithKeys.html)).
+
+
+Try the following:
+
+1.
+
+``` js
+var svg = d3.select("svg");
+
+var dataset = [{key: 12, x: 100, y: 200},
+              {key: 16, x: 250, y: 300}];
+              
+svg.selectAll("text")
+  .data(dataset, d => d.key)
+  .exit()
+  .remove();
+```
+
+Then:
+
+``` js
+svg.selectAll("text")
+  .attr("x", d => d.x)
+  .attr("y", d => d.y);
+```
+
+2. 
+
+(Refresh)
+
+``` js
+var dataset = [{key: 23, x: 300, y: 150},
+              {key: 5, x: 450, y: 270}];
+              
+var databind = svg.selectAll("text")
+  .data(dataset, d => d.key)
+
+databind.exit().remove();
+```
+
+Then:
+``` js
+databind.enter().append("text")
+  .attr("x", d => d.x)
+  .attr("y", d => d.y)
+  .text(d => `key: ${d.key}`);
+```
+
+3. Experiment with other data binds.
+
