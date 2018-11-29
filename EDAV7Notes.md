@@ -1,13 +1,17 @@
 EDAV7 Notes
 ================
 
-Axes
-=======
+## Axes
+
 Add x-axis
 [EDAV7_1_axes.html](EDAV7_1_axes.html)
 
-Transitions
-=======
+## Interactivity
+
+[Interactivity.pdf](Interactivity.pdf)
+
+## Transitions
+
 [Transitions.pdf](Transitions.pdf)
 
 ### First attempt
@@ -20,7 +24,9 @@ Transitions
 
 * When "Remove bar (right) is clicked, the bar on the right immediately disappears, and then the remaining bars transition to their new places to the right.
 
-### Join data by key to maintain object constancy
+## Object constancy
+
+[ObjectConstancy.pdf](ObjectConstancy.pdf)
 
 [EDAV7_3_obj_constancy.html](EDAV7_3_obj_constancy.html)
 
@@ -32,7 +38,7 @@ Transitions
 
 Download and open [DataBindwithKeys.html](DataBindwithKeys.html)
 
-(or use [this online version](https://jtr13.github.io/D3/DataBindwithKeys.html)).
+(or open [this online version](https://jtr13.github.io/D3/DataBindwithKeys.html)) in a new tab.
 
 
 Try the following:
