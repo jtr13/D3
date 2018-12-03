@@ -40,10 +40,7 @@ Link to IDVW source code (2nd edition): https://github.com/alignedleft/d3-book/r
 
 [EDAV 8](EDAV8Notes.md)
 * Debugging tips
-* Helpful JavaScript
 * Line Charts `d3.line()`
+* Layouts
+* Reading Files
 
-[EDAV 9](EDAV9.pdf)
-* changes in d3 v5
-* reading files
-* layouts `d3.stack()`

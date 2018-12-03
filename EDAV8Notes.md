@@ -1,8 +1,8 @@
 EDAV8 Notes
 ================
 
-Debugging Tips
-=======
+## Debugging Tips
+
 * Make extensive use of Elements to see what's being added to the DOM.
 
 * Make extensive use of Console to check the values of variables and/or test code.
@@ -17,9 +17,16 @@ Debugging Tips
 
 * Use a text editor that helps you identify unmatched () {} [].
 
+[LineCharts.pdf](LineCharts.pdf) (or see below)
 
-Line Charts
-=======
+[Layouts.pdf](Layouts.pdf)
+
+[ReadingFiles.pdf](ReadingsFiles.pdf)
+
+
+
+## Line Charts
+
 
 ### SVG `<path>` element
 
