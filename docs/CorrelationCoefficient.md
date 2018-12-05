@@ -65,24 +65,18 @@
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")
-						.attr("x", "100")
 						.attr("width", w)
-						.attr("height", h);			
-			    				
-			svg.append("rect")
-			  .attr("width", w)
-			  .attr("height", h)
-			  .attr("fill", "none");    				
+						.attr("height", h)
+						.attr("x", "100");			
+			
 			
 			//Create X axis
 			svg.append("g")
-			        .attr("fill", "white")
 				.attr("transform", `translate(0, ${yScale(0)})`)
 				.call(xAxis);
 			
 			//Create Y axis
 			svg.append("g")
-			        .attr("fill", "white")
 				.attr("transform", `translate(${xScale(0)}, 0)`)
 				.call(yAxis);
 				
