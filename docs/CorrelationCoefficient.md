@@ -63,7 +63,7 @@
 							  .ticks(5);
 
 			//Create SVG element
-			var svg = d3.select("body")
+			var svg = d3.select("div")
 						.append("svg")
 						.attr("width", w)
 						.attr("height", h)
