@@ -56,11 +56,10 @@ var yScale = d3.scaleLinear()
     .scale(yScale).ticks(5);
 
 //Create SVG element
-  var svg = d3.select("div")
+  var svg = d3.select("body")
     .append("svg")
       .attr("width", w)
-      .attr("height", h)
-      .attr("x", "100");			
+      .attr("height", h);			
 			
 			
 //Create X axis
