@@ -11,13 +11,13 @@
 	  between two variables x and y. To get a sense of the connection between the
 	  appearance of points -- (x,y) pairs --  in a scatterplot and the value of r,
 	  click anywhere on the graph to add points. To remove points, click the Remove 
-	  Points button and then mouseover points. The correlation coefficient is shown below.</p>
+	  points button and then mouseover points. The correlation coefficient is shown below.</p>
 	  
 </div>
 	
 <p>
-<input type="radio" name="typeofaction" value="add" checked="true">Add points
-<input type="radio" name="typeofaction" value="remove">Remove points
+<input type="radio" name="typeofaction" value="add" checked="true">&nbsp;Add points
+<input type="radio" name="typeofaction" value="remove">&nbsp;Remove points
 </p>
 		
 <h3 id="r">Two points are needed to calculate r.</h3>
