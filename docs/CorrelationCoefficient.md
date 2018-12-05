@@ -1,66 +1,59 @@
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Hmk5 Q5</title>
-		<script src="https://d3js.org/d3.v4.min.js"></script>
 
-	</head>
-	<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+
 
 <div style="width: 600px">
 	
-	  <h3>Correlation Coefficient</h3>
+<h3>Correlation Coefficient</h3>
 	  
-	  <p>The correlation coefficient (r) is a measure of the linear relationship
+<p>The correlation coefficient (r) is a measure of the linear relationship
 	  between two variables x and y. To get a sense of the connection between the
 	  appearance of points -- (x,y) pairs --  in a scatterplot and the value of r,
 	  click anywhere on the graph to add points. To remove points, click the Remove 
 	  Points button and then mouseover points. The correlation coefficient is shown below.</p>
 	  
-	  </div>
+</div>
 	
-	  <p>
-			<input type="radio" name="typeofaction" value="add" checked="true">Add points
-			<input type="radio" name="typeofaction" value="remove">Remove points
-		</p>
+<p>
+<input type="radio" name="typeofaction" value="add" checked="true">Add points
+<input type="radio" name="typeofaction" value="remove">Remove points
+</p>
 		
-		<h3 id="r">Two points are needed to calculate r.</h3>
+<h3 id="r">Two points are needed to calculate r.</h3>
 	  
-		<script type="text/javascript">
-		
- 		  var action = "add";
+<script type="text/javascript">
 
-			//Width and height of svg
-			var w = 600;
-			var h = 400;
-			var padding = 30;
+  var action = "add";
+	
+//Width and height of svg
+  var w = 600;
+  var h = 400;
+  var padding = 30;
 			
-			// axis min / max
-		  var xmin = -50;
-		  var xmax = 50;
-		  var ymin = -30;
-		  var ymax = 30;
+// axis min / max
+  var xmin = -50;
+  var xmax = 50;
+  var ymin = -30;
+ mvar ymax = 30;
 		
-			//		Scale functions
+// Scale functions
 
-			var xScale = d3.scaleLinear()
-								 .domain([xmin, xmax])
-								 .range([padding, w - padding * 2]);
+  var xScale = d3.scaleLinear()
+    .domain([xmin, xmax])
+    .range([padding, w - padding * 2]);
 
-			var yScale = d3.scaleLinear()
-								 .domain([ymin, ymax])
-								 .range([h - padding, padding]);
+  var yScale = d3.scaleLinear()
+    .domain([ymin, ymax])
+    .range([h - padding, padding]);
 								 		 
 
-			//Define X axis
-			var xAxis = d3.axisBottom()
-							  .scale(xScale)
-							  .ticks(5);
+// Axes
+  var xAxis = d3.axisBottom()
+    .scale(xScale).ticks(5);
 
-			//Define Y axis
-			var yAxis = d3.axisLeft()
-							  .scale(yScale)
-							  .ticks(5);
+  var yAxis = d3.axisLeft()
+    .scale(yScale).ticks(5);
 
 			//Create SVG element
 			var svg = d3.select("div")
@@ -144,6 +137,4 @@
 		});
 	
 
-		</script>
-	</body>
-</html>
+</script>
