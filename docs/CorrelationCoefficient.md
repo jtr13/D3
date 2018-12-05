@@ -65,6 +65,7 @@
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")
+						.attr("x", "100")
 						.attr("width", w)
 						.attr("height", h);			
 			    				
