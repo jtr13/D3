@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -76,11 +75,13 @@
 			
 			//Create X axis
 			svg.append("g")
+			        .attr("fill", "white")
 				.attr("transform", `translate(0, ${yScale(0)})`)
 				.call(xAxis);
 			
 			//Create Y axis
 			svg.append("g")
+			        .attr("fill", "white")
 				.attr("transform", `translate(${xScale(0)}, 0)`)
 				.call(yAxis);
 				
