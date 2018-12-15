@@ -204,4 +204,9 @@ And another example with axes [EDAV8_2_linechart.html](EDAV8_2_linechart.html)
 
 (Also uses: `d3.timeParse()` and JavaScript [`Array.foreach()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) )
 
+## Additional Resources
+
+[Multiple Time Series in D3](https://medium.com/@ecb2198/multiple-time-series-in-d3-5562b981236c) by Eric Boxer (EDAV 2018)
+
+
 
