@@ -12,6 +12,98 @@ Add x-axis
 
 ## Transitions
 
+### Transitions start immediately
+
+``` js
+<script id="s4">
+var svg = d3.select("body").append("svg")
+    .attr("width", "500").attr("height", "400");
+svg.append("rect").attr("x", "0").attr("y", "0")
+      .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
+svg.append("circle").attr("cx", "250").attr("cy", "150")
+    .attr("r", "20").attr("fill", "blue");
+svg.append("ellipse").attr("cx", "150").attr("cy", "100")
+    .attr("rx", "30").attr("ry", "50").attr("fill", "yellow");
+d3.select("circle").transition().duration(2000)
+    .attr("cx", "400");
+d3.select("ellipse").transition().duration(2000)
+    .attr("cy","300");
+</script>
+```
+
+### Let's make them go back... not quite!
+
+``` js
+<script id="s5">
+var svg = d3.select("body").append("svg")
+    .attr("width", "500").attr("height", "400");
+svg.append("rect").attr("x", "0").attr("y", "0")
+      .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
+svg.append("circle").attr("cx", "250").attr("cy", "150")
+    .attr("r", "20").attr("fill", "blue");
+svg.append("ellipse").attr("cx", "150").attr("cy", "100")
+    .attr("rx", "30").attr("ry", "50").attr("fill", "yellow");
+d3.select("circle").transition().duration(2000)
+    .attr("cx", "400");
+d3.select("ellipse").transition().duration(2000)
+    .attr("cy","300");
+d3.select("circle").transition().duration(2000)
+    .attr("cx", "250");
+d3.select("ellipse").transition().duration(2000)
+    .attr("cy","100");
+</script>
+```
+
+### Add a delay
+
+``` js
+<script id="s6">
+var svg = d3.select("body").append("svg")
+    .attr("width", "500").attr("height", "400");
+svg.append("rect").attr("x", "0").attr("y", "0")
+      .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
+svg.append("circle").attr("cx", "250").attr("cy", "150")
+    .attr("r", "20").attr("fill", "blue");
+svg.append("ellipse").attr("cx", "150").attr("cy", "100")
+    .attr("rx", "30").attr("ry", "50").attr("fill", "yellow");
+d3.select("circle").transition().duration(2000)
+    .attr("cx", "400");
+d3.select("ellipse").transition().duration(2000)
+    .attr("cy","300");
+d3.select("circle").transition().delay(2000).duration(2000)
+    .attr("cx", "250");
+d3.select("ellipse").transition().delay(2000).duration(2000)
+    .attr("cy","100");
+</script>    
+```
+
+## Use `.on("end", function() {})`
+
+``` js
+<script id="s7">		
+
+var svg = d3.select("body").append("svg")
+    .attr("width", "500").attr("height", "400");
+svg.append("rect").attr("x", "0").attr("y", "0")
+      .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
+svg.append("circle").attr("cx", "250").attr("cy", "150")
+    .attr("r", "20").attr("fill", "blue");
+svg.append("ellipse").attr("cx", "150").attr("cy", "100")
+    .attr("rx", "30").attr("ry", "50").attr("fill", "yellow");
+d3.select("circle").transition().duration(2000)
+    .attr("cx", "400");
+d3.select("ellipse").transition().duration(2000)
+    .attr("cy","300").on("end", function() {
+
+  d3.select("circle").transition()
+      .duration(2000).attr("cx", "250");
+  d3.select("ellipse").transition()
+      .duration(2000).attr("cy","100");
+
+});
+</script>
+```
+
 [Transitions.pdf](Transitions.pdf)
 
 ### First attempt
