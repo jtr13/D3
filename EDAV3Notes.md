@@ -1,39 +1,6 @@
 EDAV3 Notes
 ================
 
-Adding D3 to `html` file
-========================
-
-Start with bare minimum `html` (w/ D3 link). Copy and paste the code below, or download [D3template.html](https://raw.githubusercontent.com/jtr13/D3/master/D3template.html).
-
-``` html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Change the title!</title>
-    <script src="https://d3js.org/d3.v4.min.js"></script>  <!-- link to D3 library -->
-  </head>
-
-  <body>
-    <script>
-    // JavaScript / D3 will go here
-    </script>
-  </body>
-
-</html>
-```
-
-Add svg
-=======
-
-``` js
-<script id="s1">
-d3.select("body").append("svg").attr("width", "500")
-    .attr("height", "400");
-</script>
-```
-
 Add elements with `.append()`
 =======
 
@@ -41,12 +8,16 @@ Add elements with `.append()`
 <script id="s2">
 d3.select("body").append("svg").attr("width", "500")
     .attr("height", "400");
+    
 d3.select("svg").append("rect").attr("x", "0").attr("y", "0")
     .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
+    
 d3.select("svg").append("circle").attr("cx", "200")
     .attr("cy", "100").attr("r", "25").attr("fill", "orange");
+    
 d3.select("svg").append("circle").attr("cx", "300")
     .attr("cy", "150").attr("r", "25").attr("fill", "red");  
+    
 </script>
 ```
 
@@ -116,98 +87,40 @@ svg.append("circle").attr("cx", "250").attr("cy", "150")
 </script>
 ```
 
-Transitions start immediately
+Adding D3 to `html` file
+========================
+
+Start with bare minimum `html` (w/ D3 link). Copy and paste the code below, or download [D3template.html](https://raw.githubusercontent.com/jtr13/D3/master/D3template.html).
+
+``` html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Change the title!</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>  <!-- link to D3 library -->
+  </head>
+
+  <body>
+    <script>
+    // JavaScript / D3 will go here
+    </script>
+  </body>
+
+</html>
+```
+
+Add svg
 =======
 
 ``` js
-<script id="s4">
-var svg = d3.select("body").append("svg")
-    .attr("width", "500").attr("height", "400");
-svg.append("rect").attr("x", "0").attr("y", "0")
-      .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
-svg.append("circle").attr("cx", "250").attr("cy", "150")
-    .attr("r", "20").attr("fill", "blue");
-svg.append("ellipse").attr("cx", "150").attr("cy", "100")
-    .attr("rx", "30").attr("ry", "50").attr("fill", "yellow");
-d3.select("circle").transition().duration(2000)
-    .attr("cx", "400");
-d3.select("ellipse").transition().duration(2000)
-    .attr("cy","300");
+<script id="s1">
+d3.select("body").append("svg").attr("width", "500")
+    .attr("height", "400");
 </script>
 ```
 
-Let's make them go back... not quite!
-=======
-``` js
-<script id="s5">
-var svg = d3.select("body").append("svg")
-    .attr("width", "500").attr("height", "400");
-svg.append("rect").attr("x", "0").attr("y", "0")
-      .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
-svg.append("circle").attr("cx", "250").attr("cy", "150")
-    .attr("r", "20").attr("fill", "blue");
-svg.append("ellipse").attr("cx", "150").attr("cy", "100")
-    .attr("rx", "30").attr("ry", "50").attr("fill", "yellow");
-d3.select("circle").transition().duration(2000)
-    .attr("cx", "400");
-d3.select("ellipse").transition().duration(2000)
-    .attr("cy","300");
-d3.select("circle").transition().duration(2000)
-    .attr("cx", "250");
-d3.select("ellipse").transition().duration(2000)
-    .attr("cy","100");
-</script>
-```
 
-Add a delay
-=======
-``` js
-<script id="s6">
-var svg = d3.select("body").append("svg")
-    .attr("width", "500").attr("height", "400");
-svg.append("rect").attr("x", "0").attr("y", "0")
-      .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
-svg.append("circle").attr("cx", "250").attr("cy", "150")
-    .attr("r", "20").attr("fill", "blue");
-svg.append("ellipse").attr("cx", "150").attr("cy", "100")
-    .attr("rx", "30").attr("ry", "50").attr("fill", "yellow");
-d3.select("circle").transition().duration(2000)
-    .attr("cx", "400");
-d3.select("ellipse").transition().duration(2000)
-    .attr("cy","300");
-d3.select("circle").transition().delay(2000).duration(2000)
-    .attr("cx", "250");
-d3.select("ellipse").transition().delay(2000).duration(2000)
-    .attr("cy","100");
-</script>    
-```
-
-Use `.on("end", function() {})`
-=======
-``` js
-<script id="s7">		
-
-var svg = d3.select("body").append("svg")
-    .attr("width", "500").attr("height", "400");
-svg.append("rect").attr("x", "0").attr("y", "0")
-      .attr("width", "500").attr("height", "400").attr("fill", "lightblue");
-svg.append("circle").attr("cx", "250").attr("cy", "150")
-    .attr("r", "20").attr("fill", "blue");
-svg.append("ellipse").attr("cx", "150").attr("cy", "100")
-    .attr("rx", "30").attr("ry", "50").attr("fill", "yellow");
-d3.select("circle").transition().duration(2000)
-    .attr("cx", "400");
-d3.select("ellipse").transition().duration(2000)
-    .attr("cy","300").on("end", function() {
-
-  d3.select("circle").transition()
-      .duration(2000).attr("cx", "250");
-  d3.select("ellipse").transition()
-      .duration(2000).attr("cy","100");
-
-});
-</script>
-```
 
 Practice 1
 =======
