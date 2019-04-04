@@ -34,7 +34,7 @@ d3.select("body").append("svg").attr("width", "500")
 </script>
 ```
 
-Add more elements
+Add elements with `.append()`
 =======
 
 ``` js
@@ -48,6 +48,43 @@ d3.select("svg").append("circle").attr("cx", "200")
 d3.select("svg").append("circle").attr("cx", "300")
     .attr("cy", "150").attr("r", "25").attr("fill", "red");  
 </script>
+```
+
+Binding data... _finally!_ (Console)
+=======
+
+Open S
+
+``` js
+var dataset = [90, 230, 140, 75, 180, 25];
+
+var svg = d3.select("svg");
+
+var circ = svg.selectAll("circle");
+
+circ
+
+circ.data(); // nothing there
+
+circ.data(dataset); // check Elements, nothing changed
+
+circ.data();  // now we see data
+
+circ.attr("cx", function(d) {return d;});
+
+circ.attr("cx", function(d) {return d/2;});
+
+circ.attr("cx", function(d) {return d/4;}).attr("r", "10");
+```
+
+Same as above, using arrow functions:
+
+```
+circ.attr("cx", d => d);
+
+circ.attr("cx", d => d/2);
+
+circ.attr("r", d => d/4).attr("r", "10");
 ```
 
 Store selection in a variable
@@ -188,65 +225,6 @@ Create the same visualization we did last class, but this time, build all the el
 
 1. Move all the circles to the middle of the screen, then move them all to the same location.
 
-Binding data... (*finally*)
-=======
-``` js
-<script id="s8">
-  d3.select("body").append("h1").text("Data Driven Documents");
-  var svg = d3.select("body").append("svg")
-      .attr("width", "500").attr("height", "400");
-  svg.append("rect").attr("x", "0").attr("y", "0")
-        .attr("width", "500").attr("height", "400").attr("fill", "aliceblue");
-
-  svg.append("circle").attr("cx", "50").attr("cy", "100")
-      .attr("r", "20").attr("fill", "blue");
-  svg.append("circle").attr("cx", "50").attr("cy", "150")
-      .attr("r", "20").attr("fill", "blue");
-  svg.append("circle").attr("cx", "50").attr("cy", "200")
-      .attr("r", "20").attr("fill", "blue");
-  svg.append("circle").attr("cx", "50").attr("cy", "250")
-      .attr("r", "20").attr("fill", "blue");
-  svg.append("circle").attr("cx", "50").attr("cy", "300")
-      .attr("r", "20").attr("fill", "blue");
-  svg.append("circle").attr("cx", "50").attr("cy", "350")
-      .attr("r", "20").attr("fill", "blue");
-
-</script>
-```
-
-Binding data (Console)
-=======
-``` js
-var dataset = [90, 230, 140, 75, 180, 25];
-
-var svg = d3.select("svg");
-
-var circ = svg.selectAll("circle");
-
-circ
-
-circ.data(); // nothing there
-
-circ.data(dataset); // check Elements, nothing changed
-
-circ.data();  // now we see data
-
-circ.attr("cx", function(d) {return d;});
-
-circ.attr("cx", function(d) {return d/2;});
-
-circ.attr("cx", function(d) {return d/4;}).attr("r", "10");
-```
-
-Same as above, using arrow functions:
-
-```
-circ.attr("cx", d => d);
-
-circ.attr("cx", d => d/2);
-
-circ.attr("r", d => d/4).attr("r", "10");
-```
 
 Practice 2
 =======
