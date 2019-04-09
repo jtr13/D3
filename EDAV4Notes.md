@@ -8,9 +8,13 @@ EDAV4 Notes
 
 ### More DOM elements than data values (Removing elements)
 
-Let's bind four data values to the six circles. (Note that we are not defining a separate variable for the dataset, simply entering the data array into the *select().data()* chain:
+Open `SixBlueCircles.html` in Chrome.
+
+Let's bind four data values to the six circles:
 
 ``` js
+var svg = d3.select("svg");
+
 svg.selectAll("circle")
     .data([123, 52, 232, 90]);
 ```

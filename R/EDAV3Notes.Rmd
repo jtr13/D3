@@ -1,17 +1,19 @@
 ---
 title: "EDAV3 Notes"
-output: github_document
+output: slidy_presentation
 ---
 
 
 ```{r setup, include=FALSE}
-GITHUB <- TRUE
+knitr::opts_chunk$set(echo = TRUE)
+LECTURE <- TRUE
 ```
 
-```{r, echo = FALSE, eval = GITHUB, results = "asis"}
+```{r, echo = FALSE, results = "asis"}
 cat("<!-- IF THIS IS A .MD FILE, DO NOT EDIT!!!! -->")
 ```
 
+<script src="https://d3js.org/d3.v5.min.js"></script> 
 
 ## Add elements with `.append()`
 
@@ -72,8 +74,6 @@ Store the `svg` selection:
 ```{js}
 > var mysvg = d3.select("svg");
 ```
-
-## 
 
 Note: the JavaScript community is moving toward using `let` and `const` instead of `var`; we will stick with `var` as in *IDVW*.
 
