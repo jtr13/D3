@@ -1,72 +1,9 @@
 EDAV4 Notes
 ================
 
-Binding data
-=======
-### Number of DOM elements = number of data values
-
-Open a downloaded copy of [SixBlueCircles.html](https://raw.githubusercontent.com/jtr13/D3/master/SixBlueCircles.html), or use this [online version](https://jtr13.github.io/D3/SixBlueCircles.html). (Right click to open in a new tab.)
-
-Define the following variables by executing this code in the Console:
-
-``` js
-var svg = d3.select("svg");
-
-var dataset = [34, 123, 70, 187, 200, 324];
-
-var circ = svg.selectAll("circle");
-```
-
-Check data binding:
-``` js
-circ.data();
-```
-
-You should get:
-`(6) [undefined, undefined, undefined, undefined, undefined, undefined]` since we have not bound any data yet.
-
-
-Now, we'll bind data to the circles:
-``` js
-circ.data(dataset);
-```
-
-And check the data bind again:
-``` js
-circ.data();
-```
-
-We can use the bound data to modify attributes. Try these one at a time:
-
-``` js
-circ.attr("cx", d => d);
-
-circ.transition()
-    .duration(2000)
-    .attr("cx", d => 2*d);
-
-circ.transition()
-    .duration(2000)
-    .attr("cx", d => d/2);
-```
-
-If we bind a new set of data to the DOM elements, the original set will be overwritten:
-
-``` js
-var newdata = [145, 29, 53, 196, 200, 12];
-
-circ.data(newdata);
-
-circ.transition()
-    .duration(2000)
-    .attr("cx", d => 2*d);
-
-```
-
 ### Update, Enter, and Exit Selections
  
 [UpdateEnterExit.pdf](UpdateEnterExit.pdf)
-
 
 
 ### More DOM elements than data values (Removing elements)

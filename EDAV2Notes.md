@@ -1,12 +1,8 @@
-EDAV2 Notes
-================
+# EDAV2 Notes
 
 Read: IDVB, Chapter 3
 
-Framework of an .html file
-==========================
-
-# Framework of an .html file
+## Framework of an .html file
 
 
 
@@ -103,8 +99,8 @@ paragraph
 
 *Interactive Data Visualization for the Web* (IDVW) pp. 19-25
 
-CSS
-===
+## CSS
+
 
 ``` css
     .myclass2 {
@@ -125,8 +121,8 @@ CSS rules enable styling *and* selecting.
 
 *IDVW* pp. 30-35
 
-SVG
-===
+## SVG
+
 
 ``` html
 <svg width="500" height="300">  <!-- some SVG -->
@@ -140,8 +136,8 @@ SVG
 
 *IDVW* pp. 52-61
 
-JavaScript
-==========
+## JavaScript
+
 
 *IDVW* pp. 36-52
 
@@ -167,8 +163,8 @@ console.log("This is an equation: " + a + " + " + b + " = " + (a + b));
 
 This is an equation: 3 + 4 = 7
 
-Breaking it down
-================
+## Breaking it down
+
 
 ``` js
 d3.select("circle").transition().duration(2000)
@@ -181,8 +177,7 @@ d3.select("circle").transition().duration(2000)
 
 3.  Modifying elements (IDVW, Chapter 6, 90-93 & elsewhere)
 
-Chaining methods
-================
+## Chaining methods
 
 ``` html
 <p id="id2" style="font-size: 72px;">
@@ -199,8 +194,8 @@ d3.select("#id2").transition().duration(3000)
   .style("font-size", "24px").style("color", "red");
 ```
 
-Chaining methods: two transitions
-=================================
+## Chaining methods: two transitions
+
 
 ``` html
 <p id="id3" style="font-size: 72px;">Watch me turn red, 
@@ -218,8 +213,8 @@ d3.select("#id3")
   .transition().duration(3000).style("font-size", "24px");
 ```
 
-Selecting by tag
-================
+## Selecting by tag
+
 
 Select the first one:
 
@@ -237,8 +232,8 @@ d3.selectAll("circle");
 d3.selectAll("p");
 ```
 
-Class and ID attributes
-=======================
+## Class and ID attributes
+
 
 ``` html
 <p class="myclass">This paragraph has a class.</p>
@@ -253,8 +248,8 @@ This paragraph has a class.
 This paragraph has an id.
 </p>
 
-Selecting by ID
-===============
+## Selecting by ID
+
 
 ``` html
 <p id="id1">Watch me grow.</p>
@@ -268,8 +263,8 @@ d3.select("#id1").transition().duration(3000)
   .style("font-size", "72px");
 ```
 
-Selecting by class
-==================
+## Selecting by class
+
 
 <svg width="500" height="300">
 <!-- some SVG --> <rect class="trio" x="100" y="50" width="75" height="75" fill="blue"></rect> <rect class="trio" x="200" y="50" width="75" height="75" fill="blue"></rect> <rect class="trio" x="300" y="50" width="75" height="75" fill="blue"></rect>
@@ -281,8 +276,8 @@ d3.selectAll("rect.trio").transition().duration(3000)
   .attr("y", "150").attr("fill", "orange");
 ```
 
-PRACTICE
-========
+# PRACTICE
+
 
 Download and open [SixBlueCircles.html](SixBlueCircles.html)
 
@@ -294,8 +289,8 @@ Download and open [SixBlueCircles.html](SixBlueCircles.html)
 
 4.  Move all the circles to the middle of the screen, *then* move them all to the same location.
 
-Modifying elements
-==================
+## Modifying elements
+
 
 1.  Attributes
 
@@ -305,8 +300,8 @@ Modifying elements
 
 <https://github.com/d3/d3-selection#modifying-elements>
 
-Attributes
-==========
+## Attributes
+
 
 ### HTML
 
@@ -322,8 +317,8 @@ d3.select("p").attr("id", "p1");
 <p id="p1">Paragraph</p>
 ```
 
-Attributes
-==========
+## Attributes
+
 
 ### SVG
 
@@ -339,8 +334,8 @@ d3.select("circle").attr("r", "100");
 <circle cx="50" cy="100" r="100"></circle>
 ```
 
-Styles
-======
+## Styles
+
 
 ### HTML
 
@@ -356,8 +351,8 @@ d3.select("#id5").style("color", "red");
 <p id="id5" style="color: red;">It's not easy being green</p>
 ```
 
-Styles
-======
+## Styles
+
 
 ### Rough timeline of HTML / CSS history:
 
@@ -373,8 +368,8 @@ This is an h1 header.
 
 <http://www.pmichaud.com/toast/>
 
-Styles
-======
+## Styles
+
 
 ### Mid 1990s (don't use):
 
@@ -391,8 +386,8 @@ HTML tag history
 
 <http://www.martinrinehart.com/frontend-engineering/engineers/html/html-tag-history.html>
 
-Styles: External style sheet (preferred method)
-===============================================
+## Styles: External style sheet (preferred method)
+
 
 ### Late 1990s - present: efforts to separate *style* from *content*
 

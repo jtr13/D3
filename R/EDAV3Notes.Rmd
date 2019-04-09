@@ -1,13 +1,23 @@
-EDAV3 Notes
-================
+---
+title: "EDAV3 Notes"
+output: github_document
+---
 
-<!-- IF THIS IS A .MD FILE, DO NOT EDIT!!!! -->
+
+```{r setup, include=FALSE}
+GITHUB <- TRUE
+```
+
+```{r, echo = FALSE, eval = GITHUB, results = "asis"}
+cat("<!-- IF THIS IS A .MD FILE, DO NOT EDIT!!!! -->")
+```
+
 
 ## Add elements with `.append()`
 
 <!-- Open `D3template.html` in Chrome. -->
 
-``` js
+```{js}
 > d3.select("body").append("svg").attr("width", "500")
     .attr("height", "400");
     
@@ -19,81 +29,76 @@ EDAV3 Notes
     
 > d3.select("svg").append("circle").attr("cx", "300")
     .attr("cy", "150").attr("r", "25").attr("fill", "red");  
+
 ```
 
-## Binding data… *finally\!* (Console)
+## Binding data... _finally!_ (Console)
 
-Open your local copy of `SixBlueCircles.html` in Chrome, or use the
-[online version](https://jtr13.github.io/D3/SixBlueCircles.html) (right
-click to open in a new tab).
 
-Bind
-data:
+Open your local copy of `SixBlueCircles.html` in Chrome, or use the [online version](https://jtr13.github.io/D3/SixBlueCircles.html) (right click to open in a new tab).
 
-``` js
+
+Bind data:
+```{js}
 > d3.select("svg").selectAll("circle").data([90, 230, 140, 75, 180, 25]);
 ```
 
 Check data binding:
 
-``` js
+```{js}
 > d3.select("svg").selectAll("circle").data();
 ```
 
 Set x-coordinate of each circle to data value using arrow function:
 
-``` js
+```{js}
 > d3.select("svg").selectAll("circle").attr("cx", d => d);
 ```
 
-Set x-coordinate of each circle to data value using traditional
-JavaScript
-function:
+Set x-coordinate of each circle to data value using traditional JavaScript function:
 
-``` js
+```{js}
 > d3.select("svg").selectAll("circle").attr("cx", function(d) {return d;});
 ```
 
+
+
 ## Store selection in a variable
 
-Open `SixBlueCircles.html` in Chrome, or use the [online
-version](https://jtr13.github.io/D3/SixBlueCircles.html) (Right click to
-open in a new tab.)
+Open `SixBlueCircles.html` in Chrome, or use the [online version](https://jtr13.github.io/D3/SixBlueCircles.html) (Right click to open in a new tab.)
 
 Store the `svg` selection:
 
-``` js
+```{js}
 > var mysvg = d3.select("svg");
 ```
 
 ## 
 
-Note: the JavaScript community is moving toward using `let` and `const`
-instead of `var`; we will stick with `var` as in *IDVW*.
+Note: the JavaScript community is moving toward using `let` and `const` instead of `var`; we will stick with `var` as in *IDVW*.
 
-## 
+##
 
 Examine `mysvg`:
 
-``` js
+```{js}
 > mysvg;
 ```
 
-\-\> Look at the `_groups` and `_parents` objects.
+-> Look at the `_groups` and `_parents` objects.
 
-## 
+##
 
-Use the selection to create a new
-element:
+Use the selection to create a new element:
 
-``` js
+```{js}
 > mysvg.append("circle").attr("cx", "250").attr("cy", "250").attr("r", "50")
   .attr("fill", "green");
 ```
 
 Store circle selection in a variable:
 
-``` js
+```{js}
 > var dataset = [90, 230, 140, 75, 180, 25];
 
 > var svg = d3.select("svg");
@@ -105,14 +110,14 @@ Store circle selection in a variable:
 
 ## Bind data using stored selections
 
-``` js
+```{js}
 > circ.data(); // nothing there
 ```
 
-You should get: `(6) [undefined, undefined, undefined, undefined,
-undefined, undefined]` since we have not bound any data yet.
+You should get:
+`(6) [undefined, undefined, undefined, undefined, undefined, undefined]` since we have not bound any data yet.
 
-``` js
+```{js}
 > circ.data(dataset); // check Elements, nothing changed
 
 > circ.data();  // now we see data
@@ -120,7 +125,7 @@ undefined, undefined]` since we have not bound any data yet.
 
 ## Modify elements w/ stored selections, bound data
 
-``` js
+```{js}
 > circ.attr("cx", function(d) {return d;});
 
 > circ.attr("cx", function(d) {return d/2;});
@@ -132,7 +137,7 @@ undefined, undefined]` since we have not bound any data yet.
 
 Same as above, using arrow functions:
 
-``` js
+```{js}
 > circ.attr("cx", d => d);
 
 > circ.attr("cx", d => d/2);
@@ -140,10 +145,10 @@ Same as above, using arrow functions:
 > circ.attr("r", d => d/4).attr("r", "10");
 ```
 
-Note that if we bind a new set of data to the DOM elements, the original
-set will be overwritten:
 
-``` js
+Note that if we bind a new set of data to the DOM elements, the original set will be overwritten:
+
+```{js}
 > var newdata = [145, 29, 53, 196, 200, 12];
 
 > circ.data(newdata);
@@ -153,15 +158,16 @@ set will be overwritten:
     .attr("cx", d => 2*d);
 ```
 
+
 ## Practice 1
 
-With `SixBlueCircles.html` open in Chrome, practice binding data to the
-circles and modifying the circles based on the data as in the examples
-above.
+With `SixBlueCircles.html` open in Chrome, practice binding data to the circles and modifying the circles based on the data as in the examples above.
+
 
 ## Adding D3 to `html` file
 
-``` html
+
+```{html}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -181,15 +187,16 @@ above.
 
 ## Add svg
 
-``` js
+```{js}
 <script>
 d3.select("body").append("svg").attr("width", "500").attr("height", "400");
 </script>
 ```
 
+
 ## Add a circle
 
-``` js
+```{js}
 <script>
 d3.select("body").append("svg").attr("width", "500").attr("height", "400");
 
@@ -200,8 +207,8 @@ d3.select("svg").append("circle").attr("cx", "200").attr("cy", "250")
 
 ## Practice 2
 
-Start with bare minimum `html` (w/ D3 link):
-[D3template.html](https://raw.githubusercontent.com/jtr13/D3/master/D3template.html).
+Start with bare minimum `html` (w/ D3 link): [D3template.html](https://raw.githubusercontent.com/jtr13/D3/master/D3template.html).
 
-Open the file in your text editor. Then add code to the `<script>`
-section to create an svg and then add `svg` elements to it.
+Open the file in your text editor. Then add code to the `<script>` section to create an svg and then add `svg` elements to it.
+
+

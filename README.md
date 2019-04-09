@@ -14,10 +14,10 @@ Link to IDVW source code (2nd edition): https://github.com/alignedleft/d3-book/r
 * `d3.append()`, `d3.remove()`
 
 [EDAV 3](EDAV3Notes.md)
-* Add JavaScript/D3 script to an html file
-* Store selections in variables
-* More on transitions: `delay()`, `on("end", function () {});`
 * Binding data (same # of DOM elements and data values)
+* Store selections in variables
+* Add JavaScript/D3 script to an html file
+* Create `svg` and elements from JavaScript script
 
 [EDAV 4](EDAV4Notes.md)
 * Update, enter, exit selections
@@ -34,7 +34,8 @@ Link to IDVW source code (2nd edition): https://github.com/alignedleft/d3-book/r
 * Margin convention
 
 [EDAV 7](EDAV7Notes.md)
-* Transitions
+* Transitions: `delay()`, `on("end", function () {});`
+* Transitions: common problems
 * Keys 
 * Object constancy
 
