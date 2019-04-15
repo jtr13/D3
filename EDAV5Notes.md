@@ -57,11 +57,11 @@ d3.select("svg")
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods
 
 ``` js
-Math.round(3.234);
+Math.sqrt(3.234);
 
 var x = [3.123, 9.7263, 12.2341];
 
-Math.round(x);
+Math.sqrt(x);
 ```
 
 (Oops it's not R.)
