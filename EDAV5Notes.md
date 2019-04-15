@@ -69,7 +69,7 @@ Math.round(x);
 **map()**
 
 ``` js
-x.map(d => Math.round(d));
+x.map(Math.sqrt);
 ```
 
 **d3 statistics**
