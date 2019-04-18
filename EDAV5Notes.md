@@ -52,7 +52,9 @@ d3.select("svg")
   .attr("fill", d => d.fill);
 ```
 
-**Math methods**
+**JavaScript Math methods / functions**
+
+Take *one data value*, return one value.
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods
 
@@ -62,30 +64,111 @@ Math.sqrt(3);
 var x = [3, 5, 7];
 
 Math.sqrt(x); // oops, it's not R
+
+Math;
 ```
 
 **map()** to the rescue
 
+Use map to operate on each array element separately.
+
+Analogy:
+
+R list:`lapply()` :: JavaScript array:`.map()`
+
+(What is the tidyverse equivalent of `lapply()`? `map()`!!!!!!)
+
+Do something to every element of a simple array:
+
 ``` js
 x.map(Math.sqrt);
 
+x.map(d => d*3);
+
+x.map(function(d) {return d*3;});
+
+[10, 20, 30, 40].map((d, i) => d*i);
+```
+
+My nested array language:
+
+[*element1, element2*]
+
+*element1* = [*item1, item2, item3*]
+
+*element2* = [*item1, item2, item3*]
+
+Do something to the first item of every element of a nested array:
+
+``` js
 array_dataset.map(d => Math.sqrt(d[0]))
 ```
 
-**d3 statistics**
+Sum up all items in each element of the array:
 
+``` js
+array_dataset.map(d => d[0] + d[1] + d[2]);
+```
+
+Created a nested array out of a simple array:
+
+``` js
+[10, 20, 30].map(d => [d, Math.pow(d, 2)]);
+```
+
+Create an array of objects out of a simple array (note the parentheses around the object):
+
+``` js
+[10, 20, 30].map(d => ({n: d, nsq: Math.pow(d, 2)}));
+
+[10, 20, 30].map((d, i) => ({index: i, value: d}));
+```
+
+
+**d3 statistics functions**
+
+Take *arrays* --> return single values (like R!)
+
+``` js
+var x = [12, 34, 1, 43, 90, 72];
+
+d3.mean(x);
+
+d3.sum(x);
+
+d3.min(x);
+
+d3.max(x);
+```
+
+Take an array, return two values:
+
+``` js
+d3.extent(x);  \\ Think "range"
+```
+
+Take a single value, return an array:
+
+``` js
+d3.range(5); \\ Think: count from 0 to n-1
+```
 
 
 https://github.com/d3/d3/blob/master/API.md#statistics
 
-input *arrays* --> output single values (like R!)
+
+**Combine d3 functions with .map**
+
+Helpful when dealing with arrays of arrays, or arrays of objects
 
 ``` js
-d3.mean(x);
-
 var dataset = [[100, 200, 40], [300, 150, 20]];
 
 d3.sum(dataset.map(d => d[0]));
+
+dataset.map(d => d3.sum(d));
+
+d3.range(5).map(d => [d - 1, d, d + 1]);
 ```
 
 ### Practice
