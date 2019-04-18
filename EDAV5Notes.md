@@ -12,11 +12,11 @@ objects, arrays, arrays of objects, functions (and other things)
 Open https://jtr13.github.io/D3/HorizontalBarChart.html in a new tab.
 
 ``` js
-var dataset = [[100, 200, 40], [300, 150, 20]];
+var array_dataset = [[100, 200, 40], [300, 150, 20]];
 
 d3.select("svg")
   .selectAll("circle")
-  .data(dataset)
+  .data(array_dataset)
   .enter()
   .append("circle")
   .attr("cx", d => d[0])
@@ -30,7 +30,7 @@ d3.select("svg")
 (Refresh page)
 
 ``` js
-var dataset = [ {
+var object_dataset = [ {
   cx: 100,
   cy: 200,
   fill: `red`
@@ -43,7 +43,7 @@ var dataset = [ {
 
 d3.select("svg")
   .selectAll("circle")
-  .data(dataset)
+  .data(object_dataset)
   .enter()
   .append("circle")
   .attr("cx", d => d.cx)
@@ -57,26 +57,28 @@ d3.select("svg")
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math#Methods
 
 ``` js
-Math.sqrt(3.234);
+Math.sqrt(3);
 
-var x = [3.123, 9.7263, 12.2341];
+var x = [3, 5, 7];
 
-Math.sqrt(x);
+Math.sqrt(x); // oops, it's not R
 ```
 
-(Oops it's not R.)
-
-**map()**
+**map()** to the rescue
 
 ``` js
 x.map(Math.sqrt);
+
+array_dataset.map(d => Math.sqrt(d[0]))
 ```
 
 **d3 statistics**
 
+
+
 https://github.com/d3/d3/blob/master/API.md#statistics
 
-work on *arrays*
+input *arrays* --> output single values (like R!)
 
 ``` js
 d3.mean(x);
@@ -86,6 +88,21 @@ var dataset = [[100, 200, 40], [300, 150, 20]];
 d3.sum(dataset.map(d => d[0]));
 ```
 
+### Practice
+
+Use the following to find the sample standard deviation of 3, 5, 7, 8 and 9.
+
+``` js
+d3.sum()
+d3.mean()
+
+Math.sqrt()
+Math.pow()
+
+.map()
+```
+
+[Solution](EDAV5_Solutions.md)
 
 ### Functions
 
@@ -279,7 +296,7 @@ function update(data) {
 </html>
 ```
 
-### Practice 1
+### Practice 1 working with functions
 
 Open [EDAV5_1.html](EDAV5_1.html) locally and practice running the `update()` function with different datasets in the Console.
 
@@ -288,13 +305,13 @@ For example:
 update([100, 200, 300]);
 ```
 
-### Practice 2
+### Practice 2 vertical bar chart
 
 Change the bar chart to a vertical bar chart.
 
 Solution: [EDAV5_2.html](EDAV5_2.html)
 
-### Practice 3
+### Practice 3 buttons
 
 Add "add" and "remove" buttons.
 
@@ -302,7 +319,7 @@ Solution: [EDAV5_3.html](EDAV5_3.html)
 
 *Hint for 4 & 5: Take out the transitions and get the scales working. Then, if you want, add transitions back in.*
 
-### Practice 4
+### Practice 4 d3.scaleBand
 
 Up to this point, we have assumed one-to-one correspondence between pixels and data values.  Scales allow flexibility in mapping data values to pixels. Add an ordinal scale to map the position of the bars appropriately given the width of the `svg` element, using `d3.scaleBand()`.
 
@@ -316,7 +333,7 @@ See: *IDVW*, Chapter 9, pp. 150-153
 
 Solution: [EDAV5_4_scaleBand.html](EDAV5_4_scaleBand.html)
 
-### Practice 5
+### Practice 5 d3.scaleLinear
 
 Add a linear scale for the y-axis using `d3.scaleLinear()`, so data will be scaled appropriately to the height of the `svg` element.
 
