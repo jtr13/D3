@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>d3.scaleBand</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+
+  <body>
+      
+      <script>    
+      
+      
+  var w = 500;        
+  var h = 400;               
+
+  var svg = d3.select("body")
+    .append("svg")
+      .attr("width", w)       
+      .attr("height", h)        
+
+  var bardata = [300, 100, 150, 220, 70, 270];
+
+  var xScale = d3.scaleBand()         
+    .domain(d3.range(bardata.length))
+    .range([0, w])
+    .paddingInner(.1);
+
+  var bars = svg.selectAll("rect")
+      .data(bardata);
+
+  bars.enter().append("rect")
+      .attr("x", (d, i) => xScale(i))    
+      .attr("y", d => 400 - d)
+      .attr("width", xScale.bandwidth())  
+      .attr("height", d => d)
+      .attr("fill", "lightgreen");
+
+
+    </script>
+
+  </body>
+
+</html>
