@@ -45,8 +45,9 @@ d3.select("svg")
   .attr("x2", x2)
   .attr("y1", y1)
   .attr("y2", y2);
+```
   
-Example:  [line.html](line.html)  [online version](https://bl.ocks.org/jtr13/raw/cecefce61040db70c408c052ce6ceb9c/)
+Example:  [line.html](line.html)  [online version](https://bl.ocks.org/jtr13/cecefce61040db70c408c052ce6ceb9c/)
 
 
 
