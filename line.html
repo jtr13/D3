@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>line</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+
+  <body>
+
+<h2>Click anywhere on the blue rectangle.</h2>
+      <script>
+
+  var w = 500;
+  var h = 400;
+
+  var maxcircles = 5;
+
+  var svg = d3.select("body")
+    .append("svg")
+      .attr("width", w)
+      .attr("height", h)
+
+  // add background rectangle
+  svg.append("rect")
+    .attr("width", w)
+    .attr("height", h)
+    .attr("fill", "aliceblue");
+
+  svg.on("click", newcircle);
+
+  function newcircle() {
+
+    // add a circle at the click point
+    svg.append("circle")
+      .data([d3.mouse(this)])
+      .attr("cx", d => d[0])
+      .attr("cy", d => d[1])
+      .attr("r", "5")
+      .attr("fill", "red");
+
+  // add a line connecting the two circles
+
+  var endpts = d3.selectAll("circle").data();
+
+  var n = endpts.length;
+
+  // if there are more than the maximum number of circles remove first circle and first line
+
+  if (n > maxcircles) {
+     d3.select("circle").remove();
+     d3.select("line").remove();
+  }
+
+// if there are at least 2 points draw a line between the last two circles
+
+  if (n > 1) {
+      d3.select("svg")
+      .append("line")
+      .attr("x1", endpts[n-2][0])
+      .attr("y1", endpts[n-2][1])
+      .attr("x2", endpts[n-1][0])
+      .attr("y2", endpts[n-1][1])
+      .attr("stroke", "red");
+      }
+  };
+
+
+    </script>
+
+  </body>
+
+</html>

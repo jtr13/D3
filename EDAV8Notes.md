@@ -23,9 +23,34 @@ EDAV8 Notes
 
 [ReadingFiles.pdf](ReadingsFiles.pdf)
 
+## Lines (2 points)
+
+### SVG `<line>` element
+
+ex. 
+
+``` html
+<line x1="0" y1="80" x2="100" y2="20" stroke="black" />
+```
+
+``` js
+var x1 = 0;
+var y1 = 80;
+var x2 = 100;
+var y2 = 20;
+
+d3.select("svg")
+  .append("line")
+  .attr("x1", x1)
+  .attr("x2", x2)
+  .attr("y1", y1)
+  .attr("y2", y2);
+  
+Example:  [line.html](line.html)  [online version](https://bl.ocks.org/jtr13/raw/cecefce61040db70c408c052ce6ceb9c/)
 
 
-## Line Charts
+
+## Line Charts (More than 2 points)
 
 
 ### SVG `<path>` element
