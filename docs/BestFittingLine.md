@@ -1,6 +1,7 @@
 <style>
   td {padding: 20px;}
-  table.one tbody tr td {border: none;}
+  body tbody {border-color: white;}	
+  table.one tr td {border: none;}
   h4 {color: #0072B2;}
 </style>  
 
