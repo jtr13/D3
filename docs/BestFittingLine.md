@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Q4 Estimate line</title>
-		<script src="d3.js"></script>
-
-  </head>
-  <body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 
 <div style="width: 600px">
     <h3>Estimate the best fitting line</h3> 
@@ -188,5 +180,3 @@
       };
 
 		</script>
-	</body>
-</html>
