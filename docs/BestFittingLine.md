@@ -14,9 +14,9 @@
 
 </div>   
 
-<table class = "firsttable"><tr><td>
+<table class = "firsttable"><tbody><tr><td>
 <button type="button" onclick="bestfit()">Best fitting line</button></td><td><h4 id="bestline">&nbsp;</h4></td>
-</tr></table>
+	</tbody></tr></table>
 
 <script type="text/javascript">
 
