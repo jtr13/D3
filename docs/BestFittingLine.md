@@ -1,21 +1,29 @@
+<style>
+  table td {padding: 20px;}
+  h4 {color: #0072B2;}
+</style>  
+
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <div style="width: 600px">
+
 <h3>Estimate the best fitting line</h3> 
       
 <p>Drag the endpoints of the blue line to estimate the best fitting line through the data points. Then click the button to see how you did.</p>  
+
 </div>   
 
-<p>
-<button type="button" onclick="bestfit()">Best fitting line</button>
-</p>
+<table><tr><td>
+<button type="button" onclick="bestfit()">Best fitting line</button></td><td><h4 id="bestline">&nbsp;</h4></td>
+</tr></table>
+<p></p>
 
 
 <script type="text/javascript">
 
 //Width and height of svg
-  var w = 500;
-  var h = 500;
+  var w = 400;
+  var h = 400;
   var padding = 30;
 			
 // axis min / max
@@ -26,7 +34,7 @@
           
           
 // colors  
-  var backgroundcolor = "#EDF5E1";  
+  var backgroundcolor = "#F4F4F4";  
 
 // https://rdrr.io/cran/ggthemes/man/colorblind.html    
   var circlecolor = "#CC79A7";   
@@ -62,7 +70,7 @@
                     .y(d => yScale(d[1]));
 
 //Create SVG element
-  var svg = d3.select("body")
+  var svg = d3.select("div")
 						  .append("svg")
 			  			.attr("width", w)
 			  			.attr("height", h);			
@@ -81,11 +89,6 @@
   svg.append("g")
      .attr("transform", `translate(${xScale(0)}, 0)`)
      .call(yAxis);
-        
-  d3.select("body")
-    .append("h3")
-    .attr("id", "bestline")
-    .text("");    
         
   var m = d3.randomUniform(2)()-1;  
         
@@ -108,7 +111,7 @@
      .classed("points", true)
      .attr("cx", d => xScale(d[0]))
      .attr("cy", d => yScale(d[1]))
-     .attr("r", "4")
+     .attr("r", "3")
      .attr("fill", circlecolor);
         
 // add draggable line
@@ -177,8 +180,14 @@ function dragged(d) {
     .attr("stroke-width", "3");
         
 // add equation of the line
-  d3.select("h3#bestline")
-    .text(`y = ${b1.toFixed(2)}x + ${b0.toFixed(2)}`);
+  if (b0 > 0) {
+    var b = `+ ${b0.toFixed(2)}`
+  } else {
+    var b = `- ${Math.abs(b0).toFixed(2)}`
+  }
+
+  d3.select("#bestline")
+    .text(`y = ${b1.toFixed(2)}x ${b}`);
     };
 
 </script>
