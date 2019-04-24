@@ -1,6 +1,6 @@
 <style>
   td {padding: 20px;}
-  div tbody {border: none !important;}	
+  div tbody {border-top: none !important;}	
   table.one tr td {border: none;}
   h4 {color: #0072B2;}
 </style>  
