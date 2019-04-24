@@ -1,6 +1,6 @@
 <style>
   td {padding: 20px;}
-  table, tr, td {border: none;}
+  table.firsttable, tr, td {border: none;}
   h4 {color: #0072B2;}
 </style>  
 
@@ -14,7 +14,7 @@
 
 </div>   
 
-<table><tr><td>
+<table class = "firsttable"><tr><td>
 <button type="button" onclick="bestfit()">Best fitting line</button></td><td><h4 id="bestline">&nbsp;</h4></td>
 </tr></table>
 
