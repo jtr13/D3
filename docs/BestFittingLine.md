@@ -13,7 +13,7 @@
 
 </div>   
 
-<table><tr><td>
+<table border="0"><tr><td>
 <button type="button" onclick="bestfit()">Best fitting line</button></td><td><h4 id="bestline">&nbsp;</h4></td>
 </tr></table>
 <p></p>
