@@ -1,7 +1,7 @@
 <style>
   td {padding: 20px;}
-  div tbody {border-top: none;}	
-  table.one tr td {border: none;}
+  div tbody {border: none;}	
+  table.one tr td {border: none; border-top: none;}
   h4 {color: #0072B2;}
 </style>  
 
@@ -14,7 +14,7 @@
 <p>Drag the endpoints of the blue line to estimate the best fitting line through the data points. Then click the button to see how you did.</p>  
 
 </div>   
-<hr>
+
 <table class="one"><tr><td>
 <button type="button" onclick="bestfit()">Best fitting line</button></td><td><h4 id="bestline">&nbsp;</h4></td>
 </tr></table>
