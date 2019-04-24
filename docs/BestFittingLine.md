@@ -1,7 +1,7 @@
 <style>
   td {padding: 20px;}
-  div tbody {border: none;}	
-  table.one tr td {border: none; border-top: none;}
+  div tbody {border: none !important;}	
+  table.one tr td {border: none;}
   h4 {color: #0072B2;}
 </style>  
 
