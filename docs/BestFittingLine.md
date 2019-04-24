@@ -1,6 +1,6 @@
 <style>
   td {padding: 20px;}
-  table.one::before {border: none;}
+  .one tbody {border-top: none;}
   table.one tr td {border: none;}
   h4 {color: #0072B2;}
 </style>  
