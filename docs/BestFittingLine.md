@@ -14,7 +14,7 @@
 <p>Drag the endpoints of the blue line to estimate the best fitting line through the data points. Then click the button to see how you did.</p>  
 
 </div>   
-
+<hr>
 <table class="one"><tr><td>
 <button type="button" onclick="bestfit()">Best fitting line</button></td><td><h4 id="bestline">&nbsp;</h4></td>
 </tr></table>
