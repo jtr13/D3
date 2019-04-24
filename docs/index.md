@@ -7,3 +7,5 @@
 [DataBindwithKeys.html](DataBindwithKeys.md)
 
 [CorrelationCoefficient.html](CorrelationCoefficient.md)
+
+[BestFittingLine.html](BestFittingLine.md)
