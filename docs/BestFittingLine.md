@@ -1,5 +1,5 @@
 <style>
-  table td {padding: 20px; border: none;}
+  table, td {padding: 20px; border: none;}
   h4 {color: #0072B2;}
 </style>  
 
