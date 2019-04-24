@@ -6,8 +6,11 @@
 <p>Drag the endpoints of the blue line to estimate the best fitting line through the data points. Then click the button to see how you did.</p>  
 </div>   
 
+<p>
 <button type="button" onclick="bestfit()">Best fitting line</button>
-<p></p>
+</p>
+
+
 <script type="text/javascript">
 
 //Width and height of svg
