@@ -4,6 +4,28 @@
 
 [EDAV5_1.html](EDAV5_1.html)
 
+[EDAV5_2.html](EDAV5_2.html)
+
+[EDAV5_3.html](EDAV5_3.html)
+
+[EDAV5_4_scaleBand.html](EDAV5_4_scaleBand.html)
+
+[EDAV5_5_scaleLinear.html](EDAV5_5_scaleLinear.html)
+
+[EDAV6_1_margins.html](EDAV6_1_margins.html)
+
+[EDAV6_2_yaxis.html](EDAV6_2_yaxis.html)
+
+[EDAV7_1_axes.html](EDAV7_1_axes.html)
+
+[EDAV7_2_transition.html](EDAV7_2_transitions.html)
+
+[EDAV7_3_obj_constancy.html](EDAV7_3_obj_constancy.html)
+
+[EDAV8_1_linegen.html](EDAV8_1_linegen.html)
+
+[EDAV8_2_linechart.html](EDAV8_2_linechart.html)
+
 [EventListener.html](EventListener.md)
 
 [DataBindwithKeys.html](DataBindwithKeys.md)
