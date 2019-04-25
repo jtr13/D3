@@ -2,6 +2,8 @@
 
 [HorizontalBarChart.html](HorizontalBarChart.md)
 
+[EDAV5_1.html](EDAV5_1.html)
+
 [EventListener.html](EventListener.md)
 
 [DataBindwithKeys.html](DataBindwithKeys.md)
