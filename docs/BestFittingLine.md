@@ -1,6 +1,5 @@
 <style>
   td {padding: 20px;}
-  .tablelines table.one tr td {border: none;}
   h4 {color: #0072B2;}
 </style>  
 

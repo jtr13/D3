@@ -9,3 +9,5 @@
 [CorrelationCoefficient.html](CorrelationCoefficient.md)
 
 [BestFittingLine.html](BestFittingLine.md)
+
+[BestFittingLine.html](BestFittingLine.html)
