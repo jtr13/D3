@@ -15,7 +15,7 @@ Add x-axis
 ### Transitions start immediately
 
 ``` js
-<script id="s4">
+<script>
 var svg = d3.select("body").append("svg")
     .attr("width", "500").attr("height", "400");
 svg.append("rect").attr("x", "0").attr("y", "0")
@@ -34,7 +34,7 @@ d3.select("ellipse").transition().duration(2000)
 ### Let's make them go back... not quite!
 
 ``` js
-<script id="s5">
+<script>
 var svg = d3.select("body").append("svg")
     .attr("width", "500").attr("height", "400");
 svg.append("rect").attr("x", "0").attr("y", "0")
@@ -54,10 +54,10 @@ d3.select("ellipse").transition().duration(2000)
 </script>
 ```
 
-### Add a delay
+### Sequencing transitions with delay
 
 ``` js
-<script id="s6">
+<script>
 var svg = d3.select("body").append("svg")
     .attr("width", "500").attr("height", "400");
 svg.append("rect").attr("x", "0").attr("y", "0")
@@ -77,10 +77,10 @@ d3.select("ellipse").transition().delay(2000).duration(2000)
 </script>    
 ```
 
-## Use `.on("end", function() {})`
+## Sequencing transitions with `.on("end", function() {})`
 
 ``` js
-<script id="s7">		
+<script>		
 
 var svg = d3.select("body").append("svg")
     .attr("width", "500").attr("height", "400");
@@ -104,7 +104,14 @@ d3.select("ellipse").transition().duration(2000)
 </script>
 ```
 
+### More on transition do's and don'ts:
+
 [Transitions.pdf](Transitions.pdf)
+
+Multiple transitions [example online](https://jtr13.github.io/D3/MultipleTransitions.html)
+
+[code for download](docs/MultipleTransitions.html)
+
 
 ### First attempt
 
