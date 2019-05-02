@@ -28,6 +28,8 @@
 
 [EDAV8_2_linechart.html](EDAV8_2_linechart.html)
 
+[EDAV8_3_readfile.html](EDAV8_3_readfile.html)
+
 [EventListener.html](EventListener.md)
 
 [HorizontalBarChart.html](HorizontalBarChart.md)
