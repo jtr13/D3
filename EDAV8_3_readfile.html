@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>EDAV8_3_readfile</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+
+  <body>
+
+
+  <script>
+
+// Create svg and initial bars
+
+  var w = 500;
+  var h = 400;
+  var margin = {top: 25, right: 0, bottom: 25,
+      left: 25};
+  var innerWidth = w - margin.left - margin.right;
+  var innerHeight = h - margin.top - margin.bottom;
+
+  var svg = d3.select("body")
+    .append("svg")
+      .attr("width", w)
+      .attr("height", h);
+
+  svg.append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", w)
+      .attr("height", h)
+      .attr("fill", "aliceblue");
+  
+  d3.csv("porosity.csv", function(d) {
+      return {
+          x: parseInt(d.x),
+          y: parseInt(d.y)
+      }
+  }).then(function(data) {
+      
+  console.log(data);
+      
+  var xScale = d3.scaleLinear()
+      .domain([d3.min(data, d => d.x) - 10, d3.max(data, d => d.x) + 10])
+      .range([0, innerWidth]);
+
+  var yScale = d3.scaleLinear()
+      .domain([d3.min(data, d => d.y) - 10, d3.max(data, d => d.y) + 10])
+      .range([innerHeight, 0]);
+
+  var xAxis = d3.axisBottom()                    
+      .scale(xScale);
+
+  var yAxis = d3.axisLeft()
+      .scale(yScale);
+
+  var circ = svg.append("g")
+      .attr("id", "plot")
+      .attr("transform", `translate (${margin.left}, ${margin.top})`)
+    .selectAll("circle")
+      .data(data);
+
+  circ.enter().append("circle")
+      .attr("cx", d => xScale(d.x))
+      .attr("cy", d => yScale(d.y))
+      .attr("r", "5")
+      .attr("fill", "blue");
+
+  svg.append("g")                               
+      .attr("class", "xAxis")
+      .attr("transform", `translate (${margin.left}, ${h - margin.bottom})`)
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "yAxis")
+      .attr("transform", `translate (${margin.left}, ${margin.top})`)
+      .call(yAxis);
+
+  });
+
+    </script>
+
+  </body>
+
+</html>
