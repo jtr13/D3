@@ -7,9 +7,9 @@ EDAV1.html: Overview
 
     1.  from the Courseworks Files folder
 
-    2.  from this repo by clicking [here](https://raw.githubusercontent.com/jtr13/EDAV/master/D3/EDAV1.html) and then File, Save Page As...
+    2.  from this repo by clicking [here](https://raw.githubusercontent.com/jtr13/D3/master/EDAV1.html) and then File, Save Page As...
 
-    3.  by downloading a ZIP of the whole repo by clicking [here](https://github.com/jtr13/EDAV/archive/master.zip)
+    3.  by downloading a ZIP of the whole repo by clicking [here](https://github.com/jtr13/D3/archive/master.zip)
 
 2.  Click View, Developer, Developer Tools, then the Elements tab.
 
