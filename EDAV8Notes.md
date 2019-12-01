@@ -21,7 +21,7 @@ EDAV8 Notes
 
 [Layouts.pdf](Layouts.pdf)
 
-[ReadingFiles.pdf](ReadingsFiles.pdf)
+[ReadingFiles.pdf](ReadingFiles.pdf)
 
 ## Lines (2 points)
 
