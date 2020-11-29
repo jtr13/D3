@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>EDAV5_3</title>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
   </head>
 
   <body>
