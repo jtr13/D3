@@ -7,7 +7,7 @@
   </head>
 
   <body>
-  
+  <script>
   d3.csv('https://vizhub.com/curran/datasets/temperature-in-san-francisco.csv')
     .then(data => {
       data.forEach(d => {
@@ -16,6 +16,7 @@
       });
       console.log(data);
     });
+  </script>  
     
  </body>
 </html> 
