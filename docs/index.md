@@ -1,6 +1,6 @@
 [BestFittingLine.html](BestFittingLine.md)
 
-[Boxplot.html](boxplot.md)
+[Boxplot.html](boxplot.html)
 
 [CorrelationCoefficient.html](CorrelationCoefficient.md)
 
