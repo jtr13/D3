@@ -1,9 +1,5 @@
 [BestFittingLine.html](BestFittingLine.md)
 
-[Boxplot.html](Boxplot.html)
-
-[Boxplot.html](Boxplot.md)
-
 [CorrelationCoefficient.html](CorrelationCoefficient.md)
 
 [DataBindwithKeys.html](DataBindwithKeys.md)
