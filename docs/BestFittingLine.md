@@ -9,7 +9,7 @@
 
 <h3>Estimate the best fitting line</h3> 
       
-<p>Drag the endpoints of the blue line to estimate the best fitting line through the data points. Then click the button to see how you did.</p>  
+<p>Drag the endpoints of the blue line to estimate the best fitting line through the data points. Then click the button to see how you did. Refresh the page to try again.</p>  
 
 </div>   
 
