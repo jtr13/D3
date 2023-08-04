@@ -1,7 +1,7 @@
 <style>
   td {padding: 20px;}
   h4 {color: #0072B2;}
-  table, tr, th, td {border: none;}
+  table, tr, th, td {border-color: white;}
  </style>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
