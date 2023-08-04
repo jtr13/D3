@@ -1,4 +1,4 @@
-[BestFittingLine.html](BestFittingLine.md)
+[BestFittingLine.html](BestFittingLine.html)
 
 [Boxplot.html](Boxplot.md)
 
